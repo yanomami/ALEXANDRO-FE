@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CountryService} from '../../../services/country.service';
+import {ListResult} from '../../../models/list-result.model';
+import {Country} from '../../../models/country.model';
 
 @Component({
   selector: 'app-list-country',
@@ -8,7 +10,7 @@ import {CountryService} from '../../../services/country.service';
 })
 export class ListCountryComponent implements OnInit {
 
-  private countries: any;
+  private countries: ListResult<Country>;
   private size = 5;
   private currentPage = 0;
   private totalPages: number;
@@ -25,6 +27,7 @@ export class ListCountryComponent implements OnInit {
       .subscribe(data => {
         this.countries = data;
         this.totalPages = data.page.totalPages;
+        this.pages = new Array<number>(this.totalPages);
         },
         error => {
           console.log('Error ! : ' + error);
