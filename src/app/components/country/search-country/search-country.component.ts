@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ListResult} from '../../../models/list-result.model';
 import {Country} from '../../../models/country.model';
 import {CountryService} from '../../../services/country.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-search-country',
@@ -40,8 +41,8 @@ export class SearchCountryComponent implements OnInit {
     this.getListByKeyword();
   }
 
-  onSearch(form: any) {
-    this.currentKeyword = form.keyword;
+  onSearch(form: NgForm) {
+    this.currentKeyword = form.value.keyword;
     this.getListByKeyword();
   }
 }

@@ -1,15 +1,17 @@
-<form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+<form #f="ngForm" (ngSubmit)="onSearch(f)">
 
   <div class="form-group">
     <label for="keyword">Keyword:</label>
-    <input type="text" placeholder="description"
+    <input type="text"
+           ngModel
+           placeholder="description"
            name="keyword"
            class="form-control"
            id="keyword"
            required>
   </div>
 
-  <button class="btn btn-success" [disabled]="f.invalid">Search</button>
+  <button type="submit" class="btn btn-success" [disabled]="f.invalid">Search</button>
 </form>
 
 <table class="table table-hover table-dark" *ngIf="list">
