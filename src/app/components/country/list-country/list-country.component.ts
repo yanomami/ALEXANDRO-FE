@@ -35,7 +35,7 @@ export class ListCountryComponent implements OnInit {
       );
   }
 
-  onPageCounty(i: number) {
+  onPage(i: number) {
     this.currentPage = i;
     this.getCountries();
   }

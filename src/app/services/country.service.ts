@@ -8,7 +8,6 @@ import {ListResult} from '../models/list-result.model';
 })
 export class CountryService {
 
-  // private host = 'http://localhost:8080';
   private url = 'http://localhost:8080/alexandro/countries';
 
   constructor(private http: HttpClient) {
@@ -18,6 +17,15 @@ export class CountryService {
     return this.http.get<ListResult<Country>>(
       this.url
       + '?page=' + page
+      + '&size=' + size);
+  }
+
+  public getCountriesByKeyword(keyword: string, page: number, size: number) {
+    return this.http.get<ListResult<Country>>(
+      this.url
+      + '/search/byDescription'
+      + '?keyword=' + keyword
+      + '&page=' + page
       + '&size=' + size);
   }
 

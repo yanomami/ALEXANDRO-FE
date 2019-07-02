@@ -34,12 +34,25 @@ export class SearchCountryComponent implements OnInit {
       );
   }
 
+  getCountriesByKeyword(keyword: string) {
+    this.countryService.getCountriesByKeyword(keyword, this.currentPage, this.size)
+      .subscribe(data => {
+          this.totalPages = data.page.totalPages;
+          this.pages = new Array<number>(this.totalPages);
+          this.countries = data;
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
+
   onPageCounty(i: number) {
     this.currentPage = i;
     this.getCountries();
   }
 
-  onSearch(value: any) {
-    
+  onSearch(form: any) {
+    this.getCountriesByKeyword(form.keyword);
   }
 }
