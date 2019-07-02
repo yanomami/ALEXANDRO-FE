@@ -22,7 +22,7 @@ export class SearchCountryComponent implements OnInit {
   }
 
   getCountries() {
-    this.countryService.getCountries(this.currentPage, this.size)
+    this.countryService.getList(this.currentPage, this.size)
       .subscribe(data => {
           this.totalPages = data.page.totalPages;
           this.pages = new Array<number>(this.totalPages);

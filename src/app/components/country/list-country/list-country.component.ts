@@ -10,24 +10,24 @@ import {Country} from '../../../models/country.model';
 })
 export class ListCountryComponent implements OnInit {
 
-  private countries: ListResult<Country>;
+  private list: ListResult<Country>;
   private size = 10;
   private currentPage = 0;
   private totalPages: number;
   private pages: Array<number>;
 
-  constructor(private countryService: CountryService) { }
+  constructor(private service: CountryService) { }
 
   ngOnInit() {
-    this.getCountries();
+    this.getList();
   }
 
-  getCountries() {
-    this.countryService.getCountries(this.currentPage, this.size)
+  getList() {
+    this.service.getList(this.currentPage, this.size)
       .subscribe(data => {
         this.totalPages = data.page.totalPages;
         this.pages = new Array<number>(this.totalPages);
-        this.countries = data;
+        this.list = data;
         },
         error => {
           console.log('Error ! : ' + error);
@@ -37,6 +37,6 @@ export class ListCountryComponent implements OnInit {
 
   onPage(i: number) {
     this.currentPage = i;
-    this.getCountries();
+    this.getList();
   }
 }

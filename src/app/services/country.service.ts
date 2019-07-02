@@ -13,7 +13,7 @@ export class CountryService {
   constructor(private http: HttpClient) {
   }
 
-  public getCountries(page: number, size: number) {
+  public getList(page: number, size: number) {
     return this.http.get<ListResult<Country>>(
       this.url
       + '?page=' + page
