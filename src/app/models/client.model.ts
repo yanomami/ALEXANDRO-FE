@@ -1,6 +1,6 @@
-import {Address} from './Address.model';
-import {Title} from './Title.model';
-import {PaymentMethodModel} from './PaymentMethod.model';
+import {Address} from './address.model';
+import {Title} from './title.model';
+import {PaymentMethodModel} from './paymentMethod.model';
 
 export class Client {
 
