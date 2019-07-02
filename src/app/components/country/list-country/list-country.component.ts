@@ -39,4 +39,26 @@ export class ListCountryComponent implements OnInit {
     this.currentPage = i;
     this.getList();
   }
+
+  onDelete(item) {
+    this.service.delete(item._links.self.href)
+      .subscribe(data => {
+        this.getList();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
+
+/*  onDelete(item: Country) {
+    this.service.delete(item)
+      .subscribe(data => {
+          this.getList();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }*/
 }

@@ -9,6 +9,7 @@
   <tr *ngFor="let item of list._embedded.results">
     <th scope="row">{{item.idCountry}}</th>
     <td>{{item.description}}</td>
+    <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
   </tr>
   </tbody>
   <ul *ngIf="pages" class="nav nav-pills">

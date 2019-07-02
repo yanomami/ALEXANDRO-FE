@@ -29,8 +29,12 @@ export class CountryService {
       + '&size=' + size);
   }
 
-  public deleteCountry(country: Country) {
+/*  public delete(country: Country) {
     return this.http.delete(this.url + '/' + country.idCountry);
+  }*/
+
+  public delete(url: string) {
+    return this.http.delete(url);
   }
 
   public updateCountry(country: Country) {
