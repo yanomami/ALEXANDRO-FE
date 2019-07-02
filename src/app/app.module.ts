@@ -12,7 +12,7 @@ import { EditCountryComponent } from './country/edit-country/edit-country.compon
     AppComponent,
     ListCountryComponent,
     AddCountryComponent,
-    EditCountryComponent
+    EditCountryComponent,
   ],
   imports: [
     BrowserModule,
