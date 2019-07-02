@@ -7,6 +7,7 @@ import {Country} from '../models/country.model';
 })
 export class CountryService {
 
+  // private host = 'http://localhost:8080';
   private countryUrl = 'http://localhost:8080/alexandro/countries';
 
   constructor(private http: HttpClient) {
