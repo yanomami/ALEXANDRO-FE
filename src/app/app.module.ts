@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListCountryComponent } from './country/list-country/list-country.component';
 import { AddCountryComponent } from './country/add-country/add-country.component';
 import { EditCountryComponent } from './country/edit-country/edit-country.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { EditCountryComponent } from './country/edit-country/edit-country.compon
     ListCountryComponent,
     AddCountryComponent,
     EditCountryComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
