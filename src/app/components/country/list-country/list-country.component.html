@@ -12,6 +12,7 @@
     <th scope="row">{{item.idCountry}}</th>
     <td>{{item.description}}</td>
     <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
+    <td><a class="btn btn-success" (click)="onEdit(item)">Edit</a></td>
   </tr>
   </tbody>
   <ul *ngIf="pages" class="nav nav-pills">

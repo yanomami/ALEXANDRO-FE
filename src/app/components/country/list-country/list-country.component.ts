@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CountryService} from '../../../services/country.service';
 import {ListResult} from '../../../models/list-result.model';
 import {Country} from '../../../models/country.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-country',
@@ -16,7 +17,7 @@ export class ListCountryComponent implements OnInit {
   private totalPages: number;
   private pages: Array<number>;
 
-  constructor(private service: CountryService) { }
+  constructor(private router: Router, private service: CountryService) { }
 
   ngOnInit() {
     this.getList();
@@ -50,5 +51,9 @@ export class ListCountryComponent implements OnInit {
           console.log('Error ! : ' + error);
         }
       );
+  }
+
+  onEdit(item: Country) {
+    this.router.navigateByUrl('/editCountry' + item.idCountry);
   }
 }
