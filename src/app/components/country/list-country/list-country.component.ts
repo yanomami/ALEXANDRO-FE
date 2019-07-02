@@ -11,7 +11,7 @@ import {Country} from '../../../models/country.model';
 export class ListCountryComponent implements OnInit {
 
   private countries: ListResult<Country>;
-  private size = 5;
+  private size = 10;
   private currentPage = 0;
   private totalPages: number;
   private pages: Array<number>;
@@ -23,7 +23,7 @@ export class ListCountryComponent implements OnInit {
   }
 
   getCountries() {
-    this.countryService.getCountries()
+    this.countryService.getCountries(this.currentPage, this.size)
       .subscribe(data => {
         this.totalPages = data.page.totalPages;
         this.pages = new Array<number>(this.totalPages);
@@ -35,4 +35,8 @@ export class ListCountryComponent implements OnInit {
       );
   }
 
+  onPageCounty(i: number) {
+    this.currentPage = i;
+    this.getCountries();
+  }
 }
