@@ -29,19 +29,12 @@ export class CountryService {
       + '&size=' + size);
   }
 
-/*  public delete(country: Country) {
-    return this.http.delete(this.url + '/' + country.idCountry);
-  }*/
-
+  // Alternative ->  delete(foo: Foo)
   public delete(url: string) {
     return this.http.delete(url);
   }
 
-  public updateCountry(country: Country) {
-    return this.http.put(this.url, country);
-  }
-
-  public createCountry(country: Country) {
-    return this.http.post<Country>(this.url, country);
+  public create(resource: Country) {
+    return this.http.post(this.url, resource);
   }
 }

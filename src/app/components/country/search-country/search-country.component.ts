@@ -46,6 +46,7 @@ export class SearchCountryComponent implements OnInit {
     this.getListByKeyword();
   }
 
+  // Alternative ->  onDelete(item: Foo)
   onDelete(item) {
     this.service.delete(item._links.self.href)
       .subscribe(data => {
@@ -56,15 +57,4 @@ export class SearchCountryComponent implements OnInit {
         }
       );
   }
-
-  /*  onDelete(item: Country) {
-      this.service.delete(item)
-        .subscribe(data => {
-            this.getListByKeyword();
-          },
-          error => {
-            console.log('Error ! : ' + error);
-          }
-        );
-    }*/
 }

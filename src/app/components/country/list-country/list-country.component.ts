@@ -40,6 +40,7 @@ export class ListCountryComponent implements OnInit {
     this.getList();
   }
 
+  // Alternative ->  onDelete(item: Foo)
   onDelete(item) {
     this.service.delete(item._links.self.href)
       .subscribe(data => {
@@ -50,15 +51,4 @@ export class ListCountryComponent implements OnInit {
         }
       );
   }
-
-/*  onDelete(item: Country) {
-    this.service.delete(item)
-      .subscribe(data => {
-          this.getList();
-        },
-        error => {
-          console.log('Error ! : ' + error);
-        }
-      );
-  }*/
 }
