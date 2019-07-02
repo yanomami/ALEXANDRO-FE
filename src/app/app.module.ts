@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { SearchCountryComponent } from './components/country/search-country/search-country.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {FormsModule} from '@angular/forms';
     EditCountryComponent,
     NavbarComponent,
     HomeComponent,
+    SearchCountryComponent,
   ],
   imports: [
     BrowserModule,
