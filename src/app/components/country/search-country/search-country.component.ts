@@ -10,23 +10,24 @@ import {CountryService} from '../../../services/country.service';
 })
 export class SearchCountryComponent implements OnInit {
 
-  private countries: ListResult<Country>;
+  private list: ListResult<Country>;
   private size = 10;
   private currentPage = 0;
   private totalPages: number;
   private pages: Array<number>;
+  private currentKeyword = '';
 
-  constructor(private countryService: CountryService) { }
+  constructor(private service: CountryService) { }
 
   ngOnInit() {
   }
 
-  getCountries() {
-    this.countryService.getList(this.currentPage, this.size)
+  getListByKeyword() {
+    this.service.getListByKeyword(this.currentKeyword, this.currentPage, this.size)
       .subscribe(data => {
           this.totalPages = data.page.totalPages;
           this.pages = new Array<number>(this.totalPages);
-          this.countries = data;
+          this.list = data;
         },
         error => {
           console.log('Error ! : ' + error);
@@ -34,25 +35,13 @@ export class SearchCountryComponent implements OnInit {
       );
   }
 
-  getCountriesByKeyword(keyword: string) {
-    this.countryService.getCountriesByKeyword(keyword, this.currentPage, this.size)
-      .subscribe(data => {
-          this.totalPages = data.page.totalPages;
-          this.pages = new Array<number>(this.totalPages);
-          this.countries = data;
-        },
-        error => {
-          console.log('Error ! : ' + error);
-        }
-      );
-  }
-
-  onPageCounty(i: number) {
+  onPage(i: number) {
     this.currentPage = i;
-    this.getCountries();
+    this.getListByKeyword();
   }
 
   onSearch(form: any) {
-    this.getCountriesByKeyword(form.keyword);
+    this.currentKeyword = form.keyword;
+    this.getListByKeyword();
   }
 }

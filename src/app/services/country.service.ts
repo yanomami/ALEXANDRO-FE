@@ -20,7 +20,7 @@ export class CountryService {
       + '&size=' + size);
   }
 
-  public getCountriesByKeyword(keyword: string, page: number, size: number) {
+  public getListByKeyword(keyword: string, page: number, size: number) {
     return this.http.get<ListResult<Country>>(
       this.url
       + '/search/byDescription'

@@ -12,7 +12,7 @@
   <button class="btn btn-success" [disabled]="f.invalid">Search</button>
 </form>
 
-<table class="table table-hover table-dark" *ngIf="countries">
+<table class="table table-hover table-dark" *ngIf="list">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -20,14 +20,14 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let country of countries._embedded.results">
+  <tr *ngFor="let country of list._embedded.results">
     <th scope="row">{{country.idCountry}}</th>
     <td>{{country.description}}</td>
   </tr>
   </tbody>
   <ul *ngIf="pages" class="nav nav-pills">
     <li *ngFor="let page of pages; let i=index" class="nav-item">
-      <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPageCounty(i)">{{i}}</a>
+      <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPage(i)">{{i}}</a>
     </li>
   </ul>
 </table>
