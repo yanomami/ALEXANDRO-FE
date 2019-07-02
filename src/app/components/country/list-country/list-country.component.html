@@ -15,7 +15,7 @@
   </tbody>
   <ul *ngIf="pages" class="nav nav-pills">
     <li *ngFor="let page of pages; let i=index" class="nav-item">
-      <a class="nav-link" [ngClass]="i==currentPage?'active':''" (click)="onPageCounty(i)">{{i}}</a>
+      <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPageCounty(i)">{{i}}</a>
     </li>
   </ul>
 </table>
