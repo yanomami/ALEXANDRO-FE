@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListCountryComponent } from './country/list-country/list-country.component';
-import { AddCountryComponent } from './country/add-country/add-country.component';
-import { EditCountryComponent } from './country/edit-country/edit-country.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
+import { ListCountryComponent } from './components/country/list-country/list-country.component';
+import { AddCountryComponent } from './components/country/add-country/add-country.component';
+import { EditCountryComponent } from './components/country/edit-country/edit-country.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
