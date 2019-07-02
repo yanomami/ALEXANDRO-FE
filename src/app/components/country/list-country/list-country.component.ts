@@ -8,19 +8,23 @@ import {CountryService} from '../../../services/country.service';
 })
 export class ListCountryComponent implements OnInit {
 
+  private countries: any;
+  private size = 5;
+  private currentPage = 0;
+
   constructor(private countryService: CountryService) { }
 
   ngOnInit() {
+    this.getCountries();
   }
 
   getCountries() {
     this.countryService.getCountries()
       .subscribe(data => {
         this.countries = data;
-        this.totalPages=
         },
-        (error) => {
-          console.log('Erreur ! : ' + error);
+        error => {
+          console.log('Error ! : ' + error);
         }
       );
   }
