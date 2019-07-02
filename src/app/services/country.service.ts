@@ -29,9 +29,8 @@ export class CountryService {
       + '&size=' + size);
   }
 
-  // Alternative ->  delete(foo: Foo)
-  public delete(url: string) {
-    return this.http.delete(url);
+  public delete(resource: Country) {
+    return this.http.delete(this.url + '/' + resource.idCountry);
   }
 
   public create(resource: Country) {
