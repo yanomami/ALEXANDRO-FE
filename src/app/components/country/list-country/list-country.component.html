@@ -13,9 +13,9 @@
     <td>{{country.description}}</td>
   </tr>
   </tbody>
-  <ul>
-    <li *ngFor="let page of pages">
-      <a>{{page}}</a>
+  <ul *ngIf="pages" class="nav nav-pills">
+    <li *ngFor="let page of pages; let i=index" class="nav-item">
+      <a class="nav-link">{{i}}</a>
     </li>
   </ul>
 </table>
