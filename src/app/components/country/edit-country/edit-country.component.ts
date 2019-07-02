@@ -11,6 +11,8 @@ export class EditCountryComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    const url = this.activatedRoute.snapshot.params.id;
+    console.log(url);
   }
 
 }

@@ -20,13 +20,17 @@ export class CountryService {
       + '&size=' + size);
   }
 
-  public getListByKeyword(keyword: string, page: number, size: number) {
+  public getListByDescription(keyword: string, page: number, size: number) {
     return this.http.get<ListResult<Country>>(
       this.url
       + '/search/byDescription'
       + '?key=' + keyword
       + '&page=' + page
       + '&size=' + size);
+  }
+
+  public getById(id: number) {
+    return this.http.get<Country>(this.url + '/' + id);
   }
 
   public delete(resource: Country) {

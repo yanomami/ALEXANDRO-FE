@@ -24,7 +24,7 @@ export class SearchCountryComponent implements OnInit {
   }
 
   getListByKeyword() {
-    this.service.getListByKeyword(this.currentKeyword, this.currentPage, this.size)
+    this.service.getListByDescription(this.currentKeyword, this.currentPage, this.size)
       .subscribe(data => {
           this.totalPages = data.page.totalPages;
           this.pages = new Array<number>(this.totalPages);
