@@ -11,6 +11,8 @@ export class ListCountryComponent implements OnInit {
   private countries: any;
   private size = 5;
   private currentPage = 0;
+  private totalPages: number;
+  private pages: Array<number>;
 
   constructor(private countryService: CountryService) { }
 
@@ -22,6 +24,7 @@ export class ListCountryComponent implements OnInit {
     this.countryService.getCountries()
       .subscribe(data => {
         this.countries = data;
+        this.totalPages = data.page.totalPages;
         },
         error => {
           console.log('Error ! : ' + error);

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Country} from '../models/country.model';
+import {Country, ListResult} from '../models/country.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class CountryService {
   }
 
   public getCountries() {
-    return this.http.get<Country[]>(this.countryUrl);
+    return this.http.get<ListResult<Country>>(this.countryUrl);
   }
 
   public deleteCountry(country: Country) {
