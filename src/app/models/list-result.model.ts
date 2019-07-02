@@ -1,10 +1,4 @@
-export class Country {
-
-  idCountry: number;
-  description: string;
-}
-
-/*export interface ListResult<T> {
+export interface ListResult<T> {
   _embedded: EmbeddedList<T>;
   _links: any;
   page: any;
@@ -12,4 +6,4 @@ export class Country {
 
 export interface EmbeddedList<T> {
   results: T[];
-}*/
+}

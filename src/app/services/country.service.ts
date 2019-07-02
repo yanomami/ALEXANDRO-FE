@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Country, ListResult} from '../models/country.model';
+import {Country} from '../models/country.model';
+import {ListResult} from '../models/list-result.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CountryService} from '../../../services/country.service';
-import {Country, ListResult} from '../../../models/country.model';
+import {ListResult} from '../../../models/list-result.model';
+import {Country} from '../../../models/country.model';
 
 @Component({
   selector: 'app-list-country',
