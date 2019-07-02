@@ -45,4 +45,26 @@ export class SearchCountryComponent implements OnInit {
     this.currentKeyword = form.value.keyword;
     this.getListByKeyword();
   }
+
+  onDelete(item) {
+    this.service.delete(item._links.self.href)
+      .subscribe(data => {
+          this.getListByKeyword();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
+
+  /*  onDelete(item: Country) {
+      this.service.delete(item)
+        .subscribe(data => {
+            this.getListByKeyword();
+          },
+          error => {
+            console.log('Error ! : ' + error);
+          }
+        );
+    }*/
 }
