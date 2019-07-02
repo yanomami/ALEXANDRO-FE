@@ -54,6 +54,6 @@ export class ListCountryComponent implements OnInit {
   }
 
   onEdit(item: Country) {
-    this.router.navigateByUrl('/editCountry' + item.idCountry);
+    this.router.navigateByUrl('/countries/edit/' + item.idCountry);
   }
 }

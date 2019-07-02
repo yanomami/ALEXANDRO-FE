@@ -8,9 +8,9 @@ import {EditCountryComponent} from './components/country/edit-country/edit-count
 
 const routes: Routes = [
   {path: 'countries', component: ListCountryComponent},
-  {path: 'searchCountries', component: SearchCountryComponent},
-  {path: 'addCountry', component: AddCountryComponent},
-  {path: 'editCountry/:id', component: EditCountryComponent},
+  {path: 'countries/search', component: SearchCountryComponent},
+  {path: 'countries/add', component: AddCountryComponent},
+  {path: 'countries/edit/:id', component: EditCountryComponent},
   {path: 'home', component: HomeComponent },
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: '**', redirectTo: 'home' }
