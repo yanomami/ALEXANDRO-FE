@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { SearchCountryComponent } from './components/country/search-country/search-country.component';
+import { ViewCountryComponent } from './components/country/view-country/view-country.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SearchCountryComponent } from './components/country/search-country/sear
     NavbarComponent,
     HomeComponent,
     SearchCountryComponent,
+    ViewCountryComponent,
   ],
   imports: [
     BrowserModule,
