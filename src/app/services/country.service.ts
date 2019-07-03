@@ -29,6 +29,8 @@ export class CountryService {
       + '&size=' + size);
   }
 
+  // The best solution would be not to using the IDs of your entities, and use the link references the hypermedia provides.
+  // You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
   public getById(id: number) {
     return this.http.get<Country>(this.url + '/' + id);
   }

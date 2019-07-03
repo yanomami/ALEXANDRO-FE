@@ -13,6 +13,10 @@
 
 Développez des applications Web avec Angular
 
+**Remarque à propos de l'utilisation des Id :**
+  * The best solution would be not to using the IDs of your entities, and use the link references the hypermedia provides.
+  * You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
+  `-> Voir les videos youtube ci-desus.`
 ---
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
 
