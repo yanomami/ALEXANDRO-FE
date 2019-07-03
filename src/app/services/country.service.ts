@@ -40,4 +40,8 @@ export class CountryService {
   public create(resource: Country) {
     return this.http.post(this.url, resource);
   }
+
+  public update(resource: Country) {
+    return this.http.put(this.url + '/' + resource.idCountry, resource);
+  }
 }

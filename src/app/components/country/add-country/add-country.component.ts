@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AddCountryComponent implements OnInit {
 
-  private item: Country = new Country();
+  private newItem: Country = new Country();
 
   constructor(private router: Router, private service: CountryService) { }
 
@@ -18,7 +18,7 @@ export class AddCountryComponent implements OnInit {
   }
 
   onCreate() {
-    this.service.create(this.item)
+    this.service.create(this.newItem)
       .subscribe(data => {
           this.router.navigateByUrl('/countries');
         },
