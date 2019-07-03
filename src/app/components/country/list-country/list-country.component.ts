@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class ListCountryComponent implements OnInit {
 
-  private list: ListResult<Country>;
+  public list: ListResult<Country>;
   private size = 10;
   private currentPage = 0;
   private totalPages: number;

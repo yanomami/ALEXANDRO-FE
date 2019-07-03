@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class SearchCountryComponent implements OnInit {
 
-  private list: ListResult<Country>;
+  public list: ListResult<Country>;
   private size = 10;
   private currentPage = 0;
   private totalPages: number;

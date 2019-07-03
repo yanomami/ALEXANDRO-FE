@@ -10,7 +10,7 @@ import {Country} from '../../../models/country.model';
 })
 export class EditCountryComponent implements OnInit {
 
-  private currentItem: Country;
+  public currentItem: Country;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private service: CountryService) { }
