@@ -6,5 +6,4 @@ export interface ListResult<T> {
 
 export interface EmbeddedList<T> {
   results: T[];
-  _links: {self: {href: string}};
 }
