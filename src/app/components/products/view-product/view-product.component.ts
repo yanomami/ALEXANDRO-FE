@@ -17,6 +17,8 @@ export class ViewProductComponent implements OnInit {
 
   ngOnInit() {
     const url = atob(this.activatedRoute.snapshot.params.id);
+    console.log('TOTO');
+    console.log(url);
     this.service.getSingle(url)
       .subscribe(data => {
           this.currentItem = data;

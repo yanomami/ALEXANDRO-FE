@@ -7,6 +7,7 @@ import {AddCountryComponent} from './components/countries/add-country/add-countr
 import {EditCountryComponent} from './components/countries/edit-country/edit-country.component';
 import {ViewCountryComponent} from './components/countries/view-country/view-country.component';
 import {ListProductComponent} from './components/products/list-product/list-product.component';
+import {ViewProductComponent} from './components/products/view-product/view-product.component';
 
 const routes: Routes = [
   {path: 'countries', component: ListCountryComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'countries/edit/:id', component: EditCountryComponent},
   {path: 'countries/view/:id', component: ViewCountryComponent},
   {path: 'products', component: ListProductComponent},
+  {path: 'products/view/:id', component: ViewProductComponent},
   {path: 'home', component: HomeComponent },
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: '**', redirectTo: 'home' }
