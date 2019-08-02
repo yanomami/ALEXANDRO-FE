@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../../../models/product.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
+import {BookService} from '../../../services/book.service';
+import {Book} from '../../../models/book.model';
 
 @Component({
   selector: 'app-view-product',
@@ -10,16 +12,33 @@ import {ProductService} from '../../../services/product.service';
 })
 export class ViewProductComponent implements OnInit {
 
-  public currentItem: Product;
+  public currentItemProduct: Product;
+  public currentItemBook: Book;
+
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
-              private service: ProductService) { }
+              private serviceProduct: ProductService,
+              private serviceBook: BookService) { }
 
   ngOnInit() {
+    // Get product
     const url = atob(this.activatedRoute.snapshot.params.id);
-    this.service.getSingle(url)
+    this.serviceProduct.getSingle(url)
       .subscribe(data => {
-          this.currentItem = data;
+          this.currentItemProduct = data;
+          this.getBook();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
+
+  getBook() {
+    const url = this.currentItemProduct._links.bookById.href;
+    this.serviceBook.getSingle(url)
+      .subscribe(data => {
+          this.currentItemBook = data;
         },
         error => {
           console.log('Error ! : ' + error);
@@ -29,7 +48,7 @@ export class ViewProductComponent implements OnInit {
 
   onUpdate(item: Product) {
     const url = item._links.self.href;
-    this.service.update(url, item)
+    this.serviceProduct.update(url, item)
       .subscribe(data => {
           this.router.navigateByUrl('/products');
         },

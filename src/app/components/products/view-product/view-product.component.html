@@ -15,7 +15,7 @@
 <body>
 
 <!-- Page Content -->
-<div class="container" *ngIf="currentItem">
+<div class="container" *ngIf="currentItemProduct && currentItemBook">
 
   <div class="row">
 
@@ -25,16 +25,18 @@
 
         <div class="col-lg-6 col-md-8 mb-4">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="data:image/jpg;base64,{{currentItem.picture}}" alt=""></a>
+            <a href="#"><img class="card-img-top" src="data:image/jpg;base64,{{currentItemProduct.picture}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{currentItem.id}} - {{currentItem.name}}</a>
+                <a href="#">{{currentItemProduct.id}} - {{currentItemProduct.name}}</a>
               </h4>
-              <h5>${{currentItem.priceExVat}}</h5>
-              <h5>Stock: {{currentItem.stock}}</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              <h5>${{currentItemProduct.priceExVat}}</h5>
+              <h5>Stock: {{currentItemProduct.stock}}</h5>
+              <p class="card-text">Isbn: {{currentItemBook.isbn}}</p>
+              <p class="card-text">Title: {{currentItemBook.title}}</p>
+              <p class="card-text">Nb pages: {{currentItemBook.nbPages}}</p>
 
-              <a class="btn btn-success" routerLink="/products">Back to products list</a>
+              <a class="btn btn-success" routerLink="/products">Back to products</a>
 
             </div>
             <div class="card-footer">
