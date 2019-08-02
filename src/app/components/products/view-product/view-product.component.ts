@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {BookService} from '../../../services/book.service';
 import {Book} from '../../../models/book.model';
+import {Author} from '../../../models/author.model';
+import {AuthorService} from '../../../services/author.service';
 
 @Component({
   selector: 'app-view-product',
@@ -14,11 +16,13 @@ export class ViewProductComponent implements OnInit {
 
   public currentItemProduct: Product;
   public currentItemBook: Book;
+  public currentItemAuthor: Author;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private serviceProduct: ProductService,
-              private serviceBook: BookService) { }
+              private serviceBook: BookService,
+              private serviceAuthor: AuthorService) { }
 
   ngOnInit() {
     // Get product
@@ -39,6 +43,19 @@ export class ViewProductComponent implements OnInit {
     this.serviceBook.getSingle(url)
       .subscribe(data => {
           this.currentItemBook = data;
+          this.getAuthor();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
+
+  getAuthor() {
+    const url = this.currentItemBook._links.authorByAuthorId.href;
+    this.serviceAuthor.getSingle(url)
+      .subscribe(data => {
+          this.currentItemAuthor = data;
         },
         error => {
           console.log('Error ! : ' + error);
