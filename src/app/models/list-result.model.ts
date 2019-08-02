@@ -7,3 +7,21 @@ export interface ListResult<T> {
 export interface EmbeddedList<T> {
   results: T[];
 }
+
+// TODO : model HAL
+/*
+interface HalLink {
+  href: string;
+  type: string;
+}
+
+interface HalLinks {
+  [s: string]: HalLink | HalLink[];
+}
+
+...
+_links: {
+  self: {
+    href: string;
+  }
+}*/
