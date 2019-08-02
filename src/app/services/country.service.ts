@@ -23,7 +23,7 @@ export class CountryService {
   public getListByDescription(keyword: string, page: number, size: number) {
     return this.http.get<ListResult<Country>>(
       this.url
-      + '/search/byDescription'
+      + '/search/findByDescriptionContains'
       + '?key=' + keyword
       + '&page=' + page
       + '&size=' + size);
