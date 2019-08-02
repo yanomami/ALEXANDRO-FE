@@ -67,4 +67,9 @@ export class ListCountryComponent implements OnInit {
     this.router.navigateByUrl('/countries/edit/' + btoa(url));
     // this.router.navigateByUrl('/countries/edit/' + item.id);
   }
+
+  onView(item: Country) {
+    const url = item._links.self.href;
+    this.router.navigateByUrl('/countries/view/' + btoa(url));
+  }
 }

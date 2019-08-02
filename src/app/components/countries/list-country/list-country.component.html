@@ -11,7 +11,8 @@
   <tr *ngFor="let item of list._embedded.results">
     <th scope="row">{{item.id}}</th>
     <td>{{item.description}}</td>
-    <td><a class="btn btn-success" routerLink="view/{{item.id}}">View</a></td>
+<!--    <td><a class="btn btn-success" routerLink="view/{{item.id}}">View</a></td>-->
+    <td><a class="btn btn-success" (click)="onView(item)">View</a></td>
     <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
     <td><a class="btn btn-success" (click)="onEdit(item)">Edit</a></td>
   </tr>
