@@ -1,5 +1,5 @@
 export class PaymentMethodModel {
 
-  idPaymentMethod: number;
+  id: number;
   description: string;
 }

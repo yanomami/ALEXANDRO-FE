@@ -40,7 +40,7 @@ export class CountryService {
   // You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
   // ->   public delete(url: string)
   public delete(resource: Country) {
-    return this.http.delete(this.url + '/' + resource.idCountry);
+    return this.http.delete(this.url + '/' + resource.id);
   }
 
   public create(resource: Country) {
@@ -51,6 +51,6 @@ export class CountryService {
   // You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
   // ->   public update(url: string, resource: Foo)
   public update(resource: Country) {
-    return this.http.put(this.url + '/' + resource.idCountry, resource);
+    return this.http.put(this.url + '/' + resource.id, resource);
   }
 }

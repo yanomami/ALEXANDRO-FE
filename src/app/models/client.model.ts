@@ -4,7 +4,7 @@ import {PaymentMethodModel} from './paymentMethod.model';
 
 export class Client {
 
-  idClient: number;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;

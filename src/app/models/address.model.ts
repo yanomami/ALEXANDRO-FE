@@ -2,7 +2,7 @@ import {Country} from './country.model';
 
 export class Address {
 
-  idAddress: number;
+  id: number;
   addressLine1: string;
   addressLine2: string;
   city: string;

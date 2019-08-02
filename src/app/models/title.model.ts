@@ -1,5 +1,5 @@
 export class Title {
 
-  idTitle: number;
+  id: number;
   description: string;
 }

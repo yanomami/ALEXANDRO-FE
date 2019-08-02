@@ -20,7 +20,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let item of list._embedded.results">
-    <th scope="row">{{item.idCountry}}</th>
+    <th scope="row">{{item.id}}</th>
     <td>{{item.description}}</td>
     <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
   </tr>
