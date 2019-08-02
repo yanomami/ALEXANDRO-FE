@@ -15,11 +15,11 @@ export abstract class AbstractService<T> {
       + '&size=' + size);
   }
 
-  public getSingleByUrl(url: string) {
+  public getSingle(url: string) {
     return this.http.get<T>(url);
   }
 
-  public deleteByUrl(url: string) {
+  public delete(url: string) {
     return this.http.delete(url);
   }
 
@@ -27,7 +27,7 @@ export abstract class AbstractService<T> {
     return this.http.post(this.url, resource);
   }
 
-  public updateByUrl(url: string, resource: T) {
+  public update(url: string, resource: T) {
     return this.http.put(url, resource);
   }
 }

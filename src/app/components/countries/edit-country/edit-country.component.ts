@@ -27,7 +27,7 @@ export class EditCountryComponent implements OnInit {
       );*/
 
     const url = atob(this.activatedRoute.snapshot.params.id);
-    this.service.getSingleByUrl(url)
+    this.service.getSingle(url)
       .subscribe(data => {
           this.currentItem = data;
         },
@@ -39,7 +39,7 @@ export class EditCountryComponent implements OnInit {
 
   onUpdate(item: Country) {
     const url = item._links.self.href;
-    this.service.updateByUrl(url, item)
+    this.service.update(url, item)
       .subscribe(data => {
           this.router.navigateByUrl('/countries');
         },
