@@ -14,6 +14,7 @@ import { SearchCountryComponent } from './components/countries/search-country/se
 import { ViewCountryComponent } from './components/countries/view-country/view-country.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ViewProductComponent } from './components/products/view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ViewCountryComponent,
     ListProductComponent,
     FooterComponent,
+    ViewProductComponent,
   ],
   imports: [
     BrowserModule,
