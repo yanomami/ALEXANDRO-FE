@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { SearchCountryComponent } from './components/countries/search-country/search-country.component';
 import { ViewCountryComponent } from './components/countries/view-country/view-country.component';
+import { ListProductComponent } from './components/products/list-product/list-product.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ViewCountryComponent } from './components/countries/view-country/view-c
     HomeComponent,
     SearchCountryComponent,
     ViewCountryComponent,
+    ListProductComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
