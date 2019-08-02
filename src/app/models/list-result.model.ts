@@ -8,7 +8,7 @@ export interface EmbeddedList<T> {
   results: T[];
 }
 
-// TODO : model HAL
+// TODO : model HAL links
 /*
 interface HalLink {
   href: string;
@@ -20,8 +20,6 @@ interface HalLinks {
 }
 
 ...
-_links: {
-  self: {
-    href: string;
-  }
+  _links: {self: {href: string}};
+
 }*/
