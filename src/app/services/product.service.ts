@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import {AbstractService} from './abstractService';
+import {Product} from '../models/product.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ProductService extends AbstractService<Product> {
 
-  constructor() { }
+  constructor(http: HttpClient) {
+    super(http);
+    this.url = 'http://localhost:8080/alexandro/products';
+  }
 }
