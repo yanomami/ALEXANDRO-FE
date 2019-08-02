@@ -37,9 +37,9 @@ export class EditCountryComponent implements OnInit {
       );
   }
 
-  onUpdate() {
-    const url = this.currentItem._links.self.href;
-    this.service.updateByUrl(url, this.currentItem)
+  onUpdate(item: Country) {
+    const url = item._links.self.href;
+    this.service.updateByUrl(url, item)
       .subscribe(data => {
           this.router.navigateByUrl('/countries');
         },
@@ -48,7 +48,7 @@ export class EditCountryComponent implements OnInit {
         }
       );
 
-/*    this.service.updateById(this.currentItem)
+/*    this.service.updateById(item)
       .subscribe(data => {
           this.router.navigateByUrl('/countries');
         },

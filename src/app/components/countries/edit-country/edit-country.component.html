@@ -1,6 +1,6 @@
 <div class="col-md-6" *ngIf="currentItem">
   <h2 class="text-center">Edit item</h2>
-  <form #f="ngForm" (ngSubmit)="onUpdate()">
+  <form #f="ngForm" (ngSubmit)="onUpdate(currentItem)">
 
     <div class="form-group">
       <label for="description">Description:</label>
