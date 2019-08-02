@@ -16,8 +16,18 @@ export class EditCountryComponent implements OnInit {
               private service: CountryService) { }
 
   ngOnInit() {
-    const id: number = this.activatedRoute.snapshot.params.id;
-    this.service.getSingle(id)
+/*    const id: number = this.activatedRoute.snapshot.params.id;
+    this.service.getSingleById(id)
+      .subscribe(data => {
+          this.currentItem = data;
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );*/
+
+    const url = atob(this.activatedRoute.snapshot.params.id);
+    this.service.getSingleByUrl(url)
       .subscribe(data => {
           this.currentItem = data;
         },

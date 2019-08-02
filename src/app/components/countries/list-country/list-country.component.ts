@@ -53,6 +53,9 @@ export class ListCountryComponent implements OnInit {
   }
 
   onEdit(item: Country) {
-    this.router.navigateByUrl('/countries/edit/' + item.id);
+    const url = item._links.self.href;
+    // this.router.navigateByUrl('/countries/edit/' + item.id);
+    this.router.navigateByUrl('/countries/edit/' + btoa(url));
+
   }
 }
