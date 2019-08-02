@@ -43,8 +43,12 @@ export class CountryService {
   // The best solution would be not to using the IDs of your entities, and use the link references the hypermedia provides.
   // You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
   // ->   public delete(url: string)
-  public delete(resource: Country) {
+  public deleteById(resource: Country) {
     return this.http.delete(this.url + '/' + resource.id);
+  }
+
+  public deleteByUrl(url: string) {
+    return this.http.delete(url);
   }
 
   public create(resource: Country) {
@@ -53,8 +57,12 @@ export class CountryService {
 
   // The best solution would be not to using the IDs of your entities, and use the link references the hypermedia provides.
   // You just need to parse your JSON accordingly to the HAL specification used by Spring Data Rest.
-  // ->   public update(url: string, resource: Foo)
-  public update(resource: Country) {
+  // ->   public updateById(url: string, resource: Foo)
+  public updateById(resource: Country) {
     return this.http.put(this.url + '/' + resource.id, resource);
+  }
+
+  public updateByUrl(url: string, resource: Country) {
+    return this.http.put(url, resource);
   }
 }

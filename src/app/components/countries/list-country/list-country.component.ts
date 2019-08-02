@@ -42,20 +42,29 @@ export class ListCountryComponent implements OnInit {
   }
 
   onDelete(item: Country) {
-    this.service.delete(item)
+    const url = item._links.self.href;
+    this.service.deleteByUrl(url)
+      .subscribe(data => {
+          this.getList();
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
+
+/*    this.service.deleteById(item)
       .subscribe(data => {
         this.getList();
         },
         error => {
           console.log('Error ! : ' + error);
         }
-      );
+      );*/
   }
 
   onEdit(item: Country) {
     const url = item._links.self.href;
-    // this.router.navigateByUrl('/countries/edit/' + item.id);
     this.router.navigateByUrl('/countries/edit/' + btoa(url));
-
+    // this.router.navigateByUrl('/countries/edit/' + item.id);
   }
 }
