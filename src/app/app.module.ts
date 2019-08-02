@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListCountryComponent } from './components/country/list-country/list-country.component';
-import { AddCountryComponent } from './components/country/add-country/add-country.component';
-import { EditCountryComponent } from './components/country/edit-country/edit-country.component';
+import { ListCountryComponent } from './components/countries/list-country/list-country.component';
+import { AddCountryComponent } from './components/countries/add-country/add-country.component';
+import { EditCountryComponent } from './components/countries/edit-country/edit-country.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { SearchCountryComponent } from './components/country/search-country/search-country.component';
-import { ViewCountryComponent } from './components/country/view-country/view-country.component';
+import { SearchCountryComponent } from './components/countries/search-country/search-country.component';
+import { ViewCountryComponent } from './components/countries/view-country/view-country.component';
 
 @NgModule({
   declarations: [
