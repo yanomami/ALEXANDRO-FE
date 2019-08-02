@@ -32,6 +32,7 @@
 
     <div class="col-lg-9">
 
+<!--
       <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -58,15 +59,16 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+-->
 
       <div class="row">
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of list._embedded.results">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src="data:image/jpg;base64,{{item.picture}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{item.id}} {{item.name}}</a>
+                <a href="#">{{item.id}} - {{item.name}}</a>
               </h4>
               <h5>${{item.priceExVat}}</h5>
               <h5>Stock: {{item.stock}}</h5>
