@@ -7,4 +7,6 @@ export class Product {
   stock: number;
   priceExVat: number;
   picture: Int8Array;
+  // tslint:disable-next-line:variable-name
+  _links: {self: {href: string}};
 }
