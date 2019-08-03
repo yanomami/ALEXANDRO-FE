@@ -65,10 +65,10 @@
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of list._embedded.results">
           <div class="card h-100">
-            <a (click)="onView(item)"><img class="card-img-top" src="data:image/jpg;base64,{{item.picture}}" alt=""></a>
+            <a (click)="onView(item)"><img class="card-img-top clickable" src="data:image/jpg;base64,{{item.picture}}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a class="btn btn-info" (click)="onView(item)">{{item.id}} - {{item.name}}</a>
+                <a class="btn btn-info clickable" (click)="onView(item)">{{item.id}} - {{item.name}}</a>
               </h4>
               <h5>${{item.priceExVat | number:'0.2'}}</h5>
               <h5>Stock: {{item.stock}}</h5>
