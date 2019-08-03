@@ -70,7 +70,7 @@
               <h4 class="card-title">
                 <a class="btn btn-info" (click)="onView(item)">{{item.id}} - {{item.name}}</a>
               </h4>
-              <h5>${{item.priceExVat}}</h5>
+              <h5>${{item.priceExVat | number:'0.2'}}</h5>
               <h5>Stock: {{item.stock}}</h5>
             </div>
             <div class="card-footer">
