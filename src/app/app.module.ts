@@ -8,7 +8,6 @@ import { AddCountryComponent } from './components/countries/add-country/add-coun
 import { EditCountryComponent } from './components/countries/edit-country/edit-country.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchCountryComponent } from './components/countries/search-country/search-country.component';
 import { ViewCountryComponent } from './components/countries/view-country/view-country.component';
@@ -16,6 +15,9 @@ import { ListProductComponent } from './components/products/list-product/list-pr
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewProductComponent } from './components/products/view-product/view-product.component';
 import { LoginComponent } from './components/login/login.component';
+
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from './core/interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
