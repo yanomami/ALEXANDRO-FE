@@ -8,8 +8,10 @@ import {EditCountryComponent} from './components/countries/edit-country/edit-cou
 import {ViewCountryComponent} from './components/countries/view-country/view-country.component';
 import {ListProductComponent} from './components/products/list-product/list-product.component';
 import {ViewProductComponent} from './components/products/view-product/view-product.component';
+import {LoginComponent} from './components/login/login.component';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent },
   {path: 'countries', component: ListCountryComponent},
   {path: 'countries/search', component: SearchCountryComponent},
   {path: 'countries/add', component: AddCountryComponent},
@@ -26,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRouting { }

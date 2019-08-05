@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { ListCountryComponent } from './components/countries/list-country/list-country.component';
 import { AddCountryComponent } from './components/countries/add-country/add-country.component';
@@ -9,12 +9,13 @@ import { EditCountryComponent } from './components/countries/edit-country/edit-c
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchCountryComponent } from './components/countries/search-country/search-country.component';
 import { ViewCountryComponent } from './components/countries/view-country/view-country.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewProductComponent } from './components/products/view-product/view-product.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { ViewProductComponent } from './components/products/view-product/view-pr
     ListProductComponent,
     FooterComponent,
     ViewProductComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRouting,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
