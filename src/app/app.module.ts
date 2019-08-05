@@ -41,9 +41,7 @@ import {TokenInterceptor} from './core/interceptor';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi : true}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
