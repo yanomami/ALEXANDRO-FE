@@ -10,10 +10,10 @@ import {ApiResponse} from '../models/api.response';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl = 'http://localhost:8080/users/';
+  baseUrl = 'http://localhost:8080/alexandro/users/';
 
   login(loginPayload): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/' + 'token/generate-token', loginPayload);
+    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/' + 'token/generate-token', loginPayload);
   }
 
   getUsers(): Observable<ApiResponse> {
