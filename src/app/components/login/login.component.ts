@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     const loginPayload = {
-      username: this.loginForm.controls.username.value,
+      email: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value
     };
     this.apiService.login(loginPayload).subscribe(data => {
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     window.localStorage.removeItem('token');
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required]
     });
   }
