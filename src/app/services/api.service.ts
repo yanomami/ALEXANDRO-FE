@@ -12,7 +12,8 @@ import {Login} from '../models/login.model';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl = 'http://localhost:8080/alexandro/users/';
+
+  // baseUrl = 'http://localhost:8080/alexandro/users/';
 
   login(user: Login): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:8080/alexandro/' + 'token/generate-token', user);
@@ -21,7 +22,7 @@ export class ApiService {
   register(user: Register): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:8080/alexandro/register', user);
   }
-
+/*
   getUsers(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl);
   }
@@ -40,5 +41,5 @@ export class ApiService {
 
   deleteUser(id: number): Observable<ApiResponse> {
     return this.http.delete<ApiResponse>(this.baseUrl + id);
-  }
+  }*/
 }
