@@ -4,6 +4,7 @@ import {User} from '../models/user.model';
 import {Observable} from 'rxjs';
 import {ApiResponse} from '../models/api.response';
 import {Register} from '../models/register.model';
+import {Login} from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   baseUrl = 'http://localhost:8080/alexandro/users/';
 
-  login(loginPayload): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/' + 'token/generate-token', loginPayload);
+  login(user: Login): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/' + 'token/generate-token', user);
   }
 
   register(user: Register): Observable<ApiResponse> {

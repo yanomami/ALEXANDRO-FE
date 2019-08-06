@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../../services/api.service';
+import {Login} from '../../models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin = false;
+
+  public user: Login = new Login();
+
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
   onSubmit() {
@@ -19,12 +23,10 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const loginPayload = {
-      username: this.loginForm.controls.username.value,
-      password: this.loginForm.controls.password.value
-    };
+    this.user.username = this.loginForm.controls.username.value;
+    this.user.password =  this.loginForm.controls.password.value;
 
-    this.apiService.login(loginPayload).subscribe(data => {
+    this.apiService.login(this.user).subscribe(data => {
       this.doAction(data);
     },
       error => {
