@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {User} from '../models/user.model';
 import {Observable} from 'rxjs';
 import {ApiResponse} from '../models/api.response';
 import {Register} from '../models/register.model';
 import {Login} from '../models/login.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ import {Login} from '../models/login.model';
 export class AuthenticationService {
 
   private jwtToken: string;
+  private roles: Array<any> = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   private host  = 'http://localhost:8080/alexandro';
 
@@ -28,5 +30,6 @@ export class AuthenticationService {
   saveToken(jwtToken) {
     this.jwtToken = jwtToken;
     localStorage.setItem('token', jwtToken);
+    this.roles = this.jwtHelper.decodeToken(this.jwtToken).roles;
   }
 }

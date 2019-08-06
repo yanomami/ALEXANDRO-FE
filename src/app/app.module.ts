@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './core/interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -41,11 +42,17 @@ import { RegisterComponent } from './components/register/register.component';
     AppRouting,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() {
+          return     localStorage.getItem('token'); },
+        whitelistedDomains: ['localhost:8080'],
+        blacklistedRoutes: ['localhost:8080/alexandro/login', 'localhost:8080/alexandro/register']
+      }
+    })
   ],
-  providers: [{provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi : true}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
