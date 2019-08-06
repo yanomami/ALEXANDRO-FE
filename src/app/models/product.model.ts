@@ -1,5 +1,3 @@
-import {Book} from './book.model';
-
 export class Product {
 
   id: number;
