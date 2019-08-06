@@ -11,35 +11,22 @@ import {Login} from '../models/login.model';
 })
 export class AuthenticationService {
 
+  private jwtToken: string;
+
   constructor(private http: HttpClient) { }
 
-  // baseUrl = 'http://localhost:8080/alexandro/users/';
+  private host  = 'http://localhost:8080/alexandro';
 
   login(user: Login): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/login', user);
+    return this.http.post<ApiResponse>(this.host + '/login', user);
   }
 
   register(user: Register): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/register', user);
-  }
-/*
-  getUsers(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl);
+    return this.http.post<ApiResponse>(this.host + '/register', user);
   }
 
-  getUserById(id: number): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl + id);
+  saveToken(jwtToken) {
+    this.jwtToken = jwtToken;
+    localStorage.setItem('token', jwtToken);
   }
-
-  createUser(user: User): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl, user);
-  }
-
-  updateUser(user: User): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.baseUrl + user.id, user);
-  }
-
-  deleteUser(id: number): Observable<ApiResponse> {
-    return this.http.delete<ApiResponse>(this.baseUrl + id);
-  }*/
 }
