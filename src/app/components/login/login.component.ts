@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   public user: Login = new Login();
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthenticationService) { }
 
   onSubmit() {
     if (this.loginForm.invalid) {
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.user.username = this.loginForm.controls.username.value;
     this.user.password =  this.loginForm.controls.password.value;
 
-    this.apiService.login(this.user).subscribe(data => {
+    this.authService.login(this.user).subscribe(data => {
       this.doAction(data);
     },
       error => {
@@ -46,7 +48,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.localStorage.removeItem('token');
+    const token = this.authService.loadToken();
+    if (token) { this.router.navigateByUrl('/products'); }
+
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required]
