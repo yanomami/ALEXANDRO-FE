@@ -2,23 +2,23 @@
   <h2 class="text-center">Register</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="username">User Name:</label>
-      <input type="text" [(ngModel)]="newItem.email" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+      <label for="username">User Name(Email):</label>
+      <input type="text" [(ngModel)]="user.username" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
     </div>
 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" [(ngModel)]="newItem.password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      <input type="password" [(ngModel)]="user.password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
     </div>
 
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input type="text" [(ngModel)]="newItem.firstName" formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+      <input type="text" [(ngModel)]="user.firstName" formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input type="text" [(ngModel)]="newItem.lastName" formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+      <input type="text" [(ngModel)]="user.lastName" formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
     </div>
 
     <button class="btn btn-success">Register</button>

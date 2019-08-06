@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../../services/api.service';
-import {Country} from '../../models/country.model';
-import {Client} from '../../models/client.model';
-import {PaymentMethod} from '../../models/paymentMethod.model';
-import {Address} from '../../models/address.model';
-import {Title} from '../../models/title.model';
+import {Register} from '../../models/register.model';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
-  public newItem: Client = new Client();
+  public user: Register = new Register();
 
   addForm: FormGroup;
 
@@ -32,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.apiService.register(this.newItem)
+    this.apiService.register(this.user)
       .subscribe( data => {
         this.router.navigateByUrl('/products');
         },
