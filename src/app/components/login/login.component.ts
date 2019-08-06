@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.doAction(data);
     },
       error => {
+        this.invalidLogin = true;
         console.log('Error ! : ' + error);
       }
     );
@@ -39,7 +40,8 @@ export class LoginComponent implements OnInit {
 
   doAction(data) {
     if (data.status === 200) {
-      window.localStorage.setItem('token', data.result.token);
+      const jwtToken = data.result.token;
+      this.authService.saveToken(jwtToken);
       this.router.navigateByUrl('/products').then(r => alert('Sign-in OK'));
     } else {
       this.invalidLogin = true;
