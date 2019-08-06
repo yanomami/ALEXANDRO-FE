@@ -12,12 +12,16 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthenticationService {
 
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+
   private jwtToken: string;
   private roles: Array<any> = [];
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
-
   private host  = 'http://localhost:8080/alexandro';
+
+  static logout() {
+    localStorage.removeItem('token');
+  }
 
   login(user: Login): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.host + '/login', user);
@@ -31,5 +35,17 @@ export class AuthenticationService {
     this.jwtToken = jwtToken;
     localStorage.setItem('token', jwtToken);
     this.roles = this.jwtHelper.decodeToken(this.jwtToken).roles;
+  }
+
+  loadToken() {
+    this.jwtToken = localStorage.getItem('token');
+    return this.jwtToken;
+  }
+
+  isAdmin() {
+    for (const r of this.roles) {
+      if (r.authority === 'ADMIN') { return true; }
+    }
+    return false;
   }
 }
