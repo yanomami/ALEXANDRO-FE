@@ -1,6 +1,6 @@
 import {Address} from './address.model';
 import {Title} from './title.model';
-import {PaymentMethodModel} from './paymentMethod.model';
+import {PaymentMethod} from './paymentMethod.model';
 
 export class Client {
 
@@ -13,5 +13,5 @@ export class Client {
   titleByTitleId: Title;
   addressByInvoiceAddressId: Address;
   addressByDeliveryAddressId: Address;
-  paymentMethodByPaymentMethodId: PaymentMethodModel;
+  paymentMethodByPaymentMethodId: PaymentMethod;
 }
