@@ -16,7 +16,7 @@ export class ApiService {
   // baseUrl = 'http://localhost:8080/alexandro/users/';
 
   login(user: Login): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/' + 'token/generate-token', user);
+    return this.http.post<ApiResponse>('http://localhost:8080/alexandro/login', user);
   }
 
   register(user: Register): Observable<ApiResponse> {
