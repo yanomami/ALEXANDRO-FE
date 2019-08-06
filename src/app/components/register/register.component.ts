@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {ApiService} from '../../services/api.service';
+import {AuthenticationService} from '../../services/authentication.service';
 import {Register} from '../../models/register.model';
 
 @Component({
@@ -11,7 +11,7 @@ import {Register} from '../../models/register.model';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: AuthenticationService) { }
 
   public user: Register = new Register();
 

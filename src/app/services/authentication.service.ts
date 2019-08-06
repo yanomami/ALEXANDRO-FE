@@ -9,7 +9,7 @@ import {Login} from '../models/login.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
