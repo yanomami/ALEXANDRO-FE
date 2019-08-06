@@ -18,20 +18,29 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+
     const loginPayload = {
       username: this.loginForm.controls.username.value,
       password: this.loginForm.controls.password.value
     };
+
     this.apiService.login(loginPayload).subscribe(data => {
-    // debugger;
-    if (data.status === 200) {
-        window.localStorage.setItem('token', data.result.token);
-        this.router.navigateByUrl('/products').then(r => alert('Sign-in OK'));
-      } else {
-        this.invalidLogin = true;
-        alert(data.message);
+      this.doAction(data);
+    },
+      error => {
+        console.log('Error ! : ' + error);
       }
-    });
+    );
+  }
+
+  doAction(data) {
+    if (data.status === 200) {
+      window.localStorage.setItem('token', data.result.token);
+      this.router.navigateByUrl('/products').then(r => alert('Sign-in OK'));
+    } else {
+      this.invalidLogin = true;
+      alert(data.message);
+    }
   }
 
   ngOnInit() {
