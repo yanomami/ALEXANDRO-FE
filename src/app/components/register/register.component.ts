@@ -30,12 +30,21 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.apiService.register(this.user)
       .subscribe( data => {
-        this.router.navigateByUrl('/products');
+        this.doAction(data);
         },
         error => {
           console.log('Error ! : ' + error);
         }
       );
+  }
+
+  doAction(data) {
+    if (data.status === 200) {
+      window.localStorage.setItem('token', data.result.token);
+      this.router.navigateByUrl('/products').then(r => alert('Sign-up OK'));
+    } else {
+      alert(data.message);
+    }
   }
 
 }
