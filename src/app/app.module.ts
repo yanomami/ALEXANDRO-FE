@@ -16,8 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ViewProductComponent } from './components/products/view-product/view-product.component';
 import { LoginComponent } from './components/login/login.component';
 
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {TokenInterceptor} from './core/interceptor';
+import { HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 
