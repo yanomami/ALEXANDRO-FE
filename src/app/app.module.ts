@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './core/interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {TokenInterceptor} from './core/interceptor';
     FooterComponent,
     ViewProductComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

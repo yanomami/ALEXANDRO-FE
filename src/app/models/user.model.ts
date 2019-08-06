@@ -1,5 +1,4 @@
-export class User {
+import {Client} from './client.model';
 
-  id: number;
-
+export class User extends Client {
 }

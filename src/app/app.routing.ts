@@ -9,9 +9,11 @@ import {ViewCountryComponent} from './components/countries/view-country/view-cou
 import {ListProductComponent} from './components/products/list-product/list-product.component';
 import {ViewProductComponent} from './components/products/view-product/view-product.component';
 import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterComponent },
   {path: 'countries', component: ListCountryComponent},
   {path: 'countries/search', component: SearchCountryComponent},
   {path: 'countries/add', component: AddCountryComponent},
