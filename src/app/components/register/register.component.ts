@@ -11,11 +11,15 @@ import {Register} from '../../models/register.model';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthenticationService) { }
 
   public user: Register = new Register();
 
   addForm: FormGroup;
+  invalidLogin = false;
+  errorMessage: string;
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -28,11 +32,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.apiService.register(this.user)
+    this.authService.register(this.user)
       .subscribe( data => {
         this.doAction(data);
         },
         error => {
+          this.errorMessage = error.error.message;
+          this.invalidLogin = true;
           console.log('Error ! : ' + error);
         }
       );
@@ -40,9 +46,11 @@ export class RegisterComponent implements OnInit {
 
   doAction(data) {
     if (data.status === 200) {
-      window.localStorage.setItem('token', data.result.token);
+      const jwtToken = data.result.token;
+      this.authService.saveToken(jwtToken);
       this.router.navigateByUrl('/products').then(r => alert('Sign-up OK'));
     } else {
+      this.invalidLogin = true;
       alert(data.message);
     }
   }
