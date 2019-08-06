@@ -19,10 +19,6 @@ export class AuthenticationService {
 
   private host  = 'http://localhost:8080/alexandro';
 
-  static logout() {
-    localStorage.removeItem('token');
-  }
-
   login(user: Login): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.host + '/login', user);
   }
@@ -40,6 +36,10 @@ export class AuthenticationService {
   loadToken() {
     this.jwtToken = localStorage.getItem('token');
     return this.jwtToken;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 
   isAdmin() {
