@@ -36,6 +36,10 @@ export class AuthenticationService {
     return this.jwtToken;
   }
 
+  isTokenExpired() {
+    return this.jwtHelper.isTokenExpired(this.jwtToken);
+  }
+
   logout() {
     localStorage.removeItem('token');
   }

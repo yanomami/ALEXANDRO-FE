@@ -8,9 +8,6 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
       <li class="nav-item dropdown" routerLinkActive="active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink_0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Products
@@ -29,7 +26,8 @@
           <a class="dropdown-item" routerLink="/countries/search">Search Countries</a>
         </div>
 
-        <button class="btn btn-default" (click)="onLogout()">Logout</button>
+        <button id="logout" *ngIf="!authService.isTokenExpired()" (click)="onLogout()">Log Out</button>
+        <button id="login" *ngIf="authService.isTokenExpired()" routerLink="/login">Log In</button>
 
       </li>
     </ul>
