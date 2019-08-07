@@ -18,7 +18,7 @@ export class ViewProductComponent implements OnInit {
   public currentItemProduct: Product;
   public currentItemBook: Book;
   public currentItemAuthor: Author;
-  quantity: number;
+  quantity = 1;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,

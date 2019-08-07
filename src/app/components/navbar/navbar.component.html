@@ -5,6 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -39,9 +40,16 @@
         </div>
       </li>
 
-      <button id="logout" *ngIf="!authService.isTokenExpired()" (click)="onLogout()">Log Out</button>
-      <button id="login" *ngIf="authService.isTokenExpired()" routerLink="/login">Log In</button>
+      <li class="nav-item">
+        <button id="logout" *ngIf="!authService.isTokenExpired()" (click)="onLogout()">Log Out</button>
+        <button id="login" *ngIf="authService.isTokenExpired()" routerLink="/login">Log In</button>
+      </li>
+
+      <li class="nav-item">
+        <a>{{caddyService.getCurrentCaddy().name}} | size : {{caddyService.getCurrentCaddy().items.size}}</a>
+      </li>
 
     </ul>
+
   </div>
 </nav>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Router} from '@angular/router';
+import {CaddyService} from '../../services/caddy.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,8 @@ import {Router} from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthenticationService,
-              private router: Router) { }
+              private router: Router,
+              public caddyService: CaddyService) { }
 
   ngOnInit() {
   }

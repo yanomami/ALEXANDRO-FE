@@ -27,7 +27,9 @@ export class CaddyService {
       productItem.quantity = quantity;
       caddy.items.set(product.id, productItem);
     }
-
+  }
+  getCurrentCaddy(): Caddy {
+    return this.caddies.get(this.currentCaddyName);
   }
 
 }
