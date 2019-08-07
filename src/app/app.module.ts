@@ -20,6 +20,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ListClientComponent } from './components/clients/list-client/list-client.component';
+import { CaddiesComponent } from './components/caddies/caddies.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,6 +42,7 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     ListClientComponent,
+    CaddiesComponent,
   ],
   imports: [
     BrowserModule,

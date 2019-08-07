@@ -32,4 +32,16 @@ export class CaddyService {
     return this.caddies.get(this.currentCaddyName);
   }
 
+  public saveCaddies() {
+    localStorage.setItem('myCaddies', JSON.stringify(this.caddies));
+  }
+
+  getTotalCurrentCaddy(): number {
+    let total = 0;
+    const items: IterableIterator<ProductItem> = this.getCurrentCaddy().items.values();
+    for (const item of items) {
+      total += item.product.priceExVat * item.quantity;
+    }
+    return total;
+  }
 }
