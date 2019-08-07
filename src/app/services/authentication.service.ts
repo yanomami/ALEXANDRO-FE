@@ -31,12 +31,12 @@ export class AuthenticationService {
     localStorage.setItem('token', jwtToken);
   }
 
-  loadToken() {
+  loadToken(): string {
     this.jwtToken = localStorage.getItem('token');
     return this.jwtToken;
   }
 
-  isTokenExpired() {
+  isTokenExpired(): boolean {
     return this.jwtHelper.isTokenExpired(this.jwtToken);
   }
 
