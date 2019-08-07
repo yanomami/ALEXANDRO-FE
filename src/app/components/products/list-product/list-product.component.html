@@ -63,7 +63,7 @@
 
       <div class="row">
 
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of list._embedded.results">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of list._embedded.results; let index = index">
           <div class="card h-100">
             <a (click)="onView(item)"><img class="card-img-top clickable" src="data:image/jpg;base64,{{item.picture}}" alt=""></a>
             <div class="card-body">
@@ -74,9 +74,9 @@
               <h5>Stock: {{item.stock}}</h5>
             </div>
             <div class="card-footer">
-              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, quantity)">
+              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, quantities[index], index)">
                 <label for="quantity" class="control-label">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" ngModel style="width: 40px" [(ngModel)]="quantity"/>
+                <input type="number" id="quantity" name="quantity" ngModel style="width: 40px" [(ngModel)]="quantities[index]"/>
                 <button>Add Cart</button>
               </form>
             </div>
