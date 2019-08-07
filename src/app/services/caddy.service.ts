@@ -12,13 +12,15 @@ export class CaddyService {
   private caddies: Map<string, Caddy> = new Map();
 
   constructor() {
-    const caddies = localStorage.getItem('myCaddies');
+/*    const caddies = localStorage.getItem('myCaddies');
     if (caddies) {
       this.caddies = JSON.parse(caddies);
     } else {
       const caddy = new Caddy(this.currentCaddyName);
       this.caddies.set(this.currentCaddyName, caddy);
-    }
+    }*/
+    const caddy = new Caddy(this.currentCaddyName);
+    this.caddies.set(this.currentCaddyName, caddy);
   }
 
   public addProductToCaddy(product: Product, quantity: number) {
