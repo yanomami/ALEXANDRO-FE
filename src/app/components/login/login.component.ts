@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
               private authService: AuthenticationService) { }
 
   ngOnInit() {
-    const token = this.authService.loadToken();
-    if (token) { this.router.navigateByUrl('/products'); }
+    if (!this.authService.isTokenExpired()) {
+      this.router.navigateByUrl('/products');
+    }
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
