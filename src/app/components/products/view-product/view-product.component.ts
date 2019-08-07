@@ -80,5 +80,7 @@ export class ViewProductComponent implements OnInit {
 
   onAddProductToCaddy(product: Product, quantity: number) {
     this.serviceCaddy.addProductToCaddy(product, quantity );
+    // reset to default
+    this.quantity = 1;
   }
 }
