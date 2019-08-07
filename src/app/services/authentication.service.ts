@@ -15,7 +15,6 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   private jwtToken: string;
-  private roles: Array<any> = [];
 
   private host  = 'http://localhost:8080/alexandro';
 
@@ -30,7 +29,6 @@ export class AuthenticationService {
   saveToken(jwtToken) {
     this.jwtToken = jwtToken;
     localStorage.setItem('token', jwtToken);
-    this.roles = this.jwtHelper.decodeToken(this.jwtToken).roles;
   }
 
   loadToken() {
@@ -40,12 +38,5 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('token');
-  }
-
-  isAdmin() {
-    for (const r of this.roles) {
-      if (r.authority === 'ADMIN') { return true; }
-    }
-    return false;
   }
 }
