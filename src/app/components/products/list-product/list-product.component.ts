@@ -3,6 +3,7 @@ import {ListResult} from '../../../models/list-result.model';
 import {Product} from '../../../models/product.model';
 import {Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
+import {CaddyService} from '../../../services/caddy.service';
 
 @Component({
   selector: 'app-list-product',
@@ -17,7 +18,11 @@ export class ListProductComponent implements OnInit {
   private totalPages: number;
   public pages: Array<number>;
 
-  constructor(private router: Router, private service: ProductService) { }
+  quantity = 1;
+
+  constructor(private router: Router,
+              private service: ProductService,
+              private serviceCaddy: CaddyService) { }
 
   ngOnInit() {
     this.getList();
@@ -61,6 +66,12 @@ export class ListProductComponent implements OnInit {
   onView(item: Product) {
     const url = item._links.self.href;
     this.router.navigateByUrl('/products/view/' + btoa(url));
+  }
+
+  onAddProductToCaddy(product: Product, quantity: number) {
+    this.serviceCaddy.addProductToCaddy(product, quantity );
+    // reset to default
+    this.quantity = 1;
   }
 }
 
