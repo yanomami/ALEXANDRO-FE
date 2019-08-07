@@ -26,7 +26,7 @@ export class AuthenticationService {
     return this.http.post<ApiResponse>(this.host + '/register', user);
   }
 
-  saveToken(jwtToken) {
+  saveToken(jwtToken: string) {
     this.jwtToken = jwtToken;
     localStorage.setItem('token', jwtToken);
   }
