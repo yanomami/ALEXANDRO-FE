@@ -13,8 +13,8 @@
     <th scope="row">{{item.product.id}}</th>
     <td>{{item.product.name}}</td>
     <td>{{item.quantity}}</td>
-    <td>{{item.product.priceExVat}}</td>
-    <td>{{item.product.priceExVat * item.quantity}}</td>
+    <td>{{item.product.priceExVat | number:'0.2'}}</td>
+    <td>{{(item.product.priceExVat * item.quantity) | number:'0.2'}}</td>
   </tr>
   <tr>
     <td colspan="4">Total</td>
