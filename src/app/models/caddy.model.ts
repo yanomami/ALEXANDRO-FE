@@ -1,9 +1,9 @@
-import {Product} from './product.model';
 import {Client} from './client.model';
+import {ProductItem} from './product-item.model';
 
 export class Caddy {
   public name: string;
-  public items: Map<string, Product> = new Map();
+  public items: Map<number, ProductItem> = new Map();
   public client: Client;
 
   constructor(name: string) {
