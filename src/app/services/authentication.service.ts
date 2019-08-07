@@ -37,7 +37,7 @@ export class AuthenticationService {
   }
 
   isTokenExpired(): boolean {
-    return this.jwtHelper.isTokenExpired(this.jwtToken);
+    return this.jwtHelper.isTokenExpired(this.loadToken());
   }
 
   logout() {
