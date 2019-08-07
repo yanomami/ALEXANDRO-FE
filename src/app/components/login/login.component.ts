@@ -20,6 +20,16 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private authService: AuthenticationService) { }
 
+  ngOnInit() {
+    const token = this.authService.loadToken();
+    if (token) { this.router.navigateByUrl('/products'); }
+
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required])],
+      password: ['', Validators.required]
+    });
+  }
+
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -49,13 +59,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    const token = this.authService.loadToken();
-    if (token) { this.router.navigateByUrl('/products'); }
-
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.required]
-    });
-  }
 }
