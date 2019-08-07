@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Shop Homepage - Start Bootstrap Template</title>
-
-</head>
-
-<body>
-
 <!-- Page Content -->
 <div class="container" *ngIf="list">
+
+  <ul *ngIf="pages" class="nav nav-pills">
+    <li *ngFor="let page of pages; let i=index" class="nav-item">
+      <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPage(i)">{{i}}</a>
+    </li>
+  </ul>
 
   <div class="row">
 
@@ -45,9 +35,9 @@
               <h5>Stock: {{item.stock}}</h5>
             </div>
             <div class="card-footer">
-              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, quantities[index], index)">
+              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, f)">
                 <label for="quantity" class="control-label">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" ngModel style="width: 40px" [(ngModel)]="quantities[index]"/>
+                <input type="number" id="quantity" name="quantity" ngModel style="width: 40px"/>
                 <button>Add Cart</button>
               </form>
             </div>
@@ -65,14 +55,4 @@
 
 </div>
 <!-- /.container -->
-
-<ul *ngIf="pages" class="nav nav-pills">
-  <li *ngFor="let page of pages; let i=index" class="nav-item">
-    <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPage(i)">{{i}}</a>
-  </li>
-</ul>
-
-</body>
-
-</html>
 
