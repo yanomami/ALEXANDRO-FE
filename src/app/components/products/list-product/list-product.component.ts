@@ -15,7 +15,7 @@ export class ListProductComponent implements OnInit {
   private size = 10;
   private currentPage = 0;
   private totalPages: number;
-  private pages: Array<number>;
+  public pages: Array<number>;
 
   constructor(private router: Router, private service: ProductService) { }
 

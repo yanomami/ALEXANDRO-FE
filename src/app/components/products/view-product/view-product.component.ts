@@ -6,6 +6,7 @@ import {BookService} from '../../../services/book.service';
 import {Book} from '../../../models/book.model';
 import {Author} from '../../../models/author.model';
 import {AuthorService} from '../../../services/author.service';
+import {CaddyService} from '../../../services/caddy.service';
 
 @Component({
   selector: 'app-view-product',
@@ -23,7 +24,8 @@ export class ViewProductComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private serviceProduct: ProductService,
               private serviceBook: BookService,
-              private serviceAuthor: AuthorService) { }
+              private serviceAuthor: AuthorService,
+              private serviceCaddy: CaddyService) { }
 
   ngOnInit() {
     // Get product
@@ -76,7 +78,7 @@ export class ViewProductComponent implements OnInit {
       );
   }
 
-  onAddProductToCaddy(p: any, quantity: number) {
-
+  onAddProductToCaddy(product: Product, quantity: number) {
+    this.serviceCaddy.addProductToCaddy(product, quantity );
   }
 }

@@ -8,7 +8,7 @@ import {Product} from '../models/product.model';
 })
 export class CaddyService {
 
-  currentCaddyName = 'Caddy1';
+  private currentCaddyName = 'Caddy1';
   private caddies: Map<string, Caddy> = new Map();
 
   constructor() {

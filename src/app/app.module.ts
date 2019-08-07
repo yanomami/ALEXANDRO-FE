@@ -21,6 +21,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ListClientComponent } from './components/clients/list-client/list-client.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +51,7 @@ import { ListClientComponent } from './components/clients/list-client/list-clien
     // Add automatically in the request header : 'Authorization: Bearer' + token
     JwtModule.forRoot({
       config: {
-        tokenGetter: function  tokenGetter() {
-          return     localStorage.getItem('token'); },
+        tokenGetter,
         whitelistedDomains: ['localhost:8080'],
         blacklistedRoutes: ['localhost:8080/alexandro/login', 'localhost:8080/alexandro/register']
       }
