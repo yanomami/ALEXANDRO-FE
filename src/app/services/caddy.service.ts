@@ -36,8 +36,13 @@ export class CaddyService {
     }
     this.saveCaddies();
   }
+
   getCurrentCaddy(): Caddy {
     return this.caddies.get(this.currentCaddyName);
+  }
+
+  getCurrentCaddyItems(): IterableIterator<ProductItem> {
+    return this.getCurrentCaddy().items.values();
   }
 
   public saveCaddies() {
@@ -46,7 +51,7 @@ export class CaddyService {
 
   getTotalCurrentCaddy(): number {
     let total = 0;
-    const items: IterableIterator<ProductItem> = this.getCurrentCaddy().items.values();
+    const items: IterableIterator<ProductItem> = this.getCurrentCaddyItems();
     for (const item of items) {
       total += item.product.priceExVat * item.quantity;
     }

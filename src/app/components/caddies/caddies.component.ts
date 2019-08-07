@@ -15,7 +15,7 @@ export class CaddiesComponent implements OnInit {
 
   ngOnInit() {
     // Convert Map to Array
-    this.list = [...this.caddyService.getCurrentCaddy().items.values()];
+    this.list = [...this.caddyService.getCurrentCaddyItems()];
   }
 
 }

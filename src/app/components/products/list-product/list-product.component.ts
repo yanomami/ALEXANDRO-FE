@@ -27,6 +27,7 @@ export class ListProductComponent implements OnInit {
   ngOnInit() {
     this.getList();
 
+    // Set default quantity for each product
     for (let i = 0; i < this.quantities.length; i++) {
       this.quantities[i] = 1;
     }
