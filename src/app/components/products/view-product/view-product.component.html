@@ -38,6 +38,11 @@
               <p class="card-text"><strong>Author:</strong> {{currentItemAuthor.firstName}} {{currentItemAuthor.lastName}}</p>
               <p class="small"><strong>Bio:</strong> {{currentItemAuthor.bio}}</p>
 
+              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(currentItemProduct, quantity)">
+                <label for="quantity" class="control-label">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" ngModel style="width: 40px" [(ngModel)]="quantity"/>
+              </form>
+
               <a class="btn btn-success" routerLink="/products">Back to products</a>
 
             </div>

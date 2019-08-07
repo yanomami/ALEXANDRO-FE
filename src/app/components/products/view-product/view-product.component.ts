@@ -17,6 +17,7 @@ export class ViewProductComponent implements OnInit {
   public currentItemProduct: Product;
   public currentItemBook: Book;
   public currentItemAuthor: Author;
+  quantity: number;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
@@ -73,5 +74,9 @@ export class ViewProductComponent implements OnInit {
           console.log('Error ! : ' + error);
         }
       );
+  }
+
+  onAddProductToCaddy(p: any, quantity: number) {
+
   }
 }

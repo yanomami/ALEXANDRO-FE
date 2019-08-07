@@ -10,6 +10,7 @@ import {ListProductComponent} from './components/products/list-product/list-prod
 import {ViewProductComponent} from './components/products/view-product/view-product.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import {ListClientComponent} from './components/clients/list-client/list-client.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'countries/view/:id', component: ViewCountryComponent},
   {path: 'products', component: ListProductComponent},
   {path: 'products/view/:id', component: ViewProductComponent},
+  {path: 'clients', component: ListClientComponent},
   {path: 'home', component: HomeComponent },
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: '**', redirectTo: 'home' }

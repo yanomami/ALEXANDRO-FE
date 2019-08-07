@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ListClientComponent } from './components/clients/list-client/list-client.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     ViewProductComponent,
     LoginComponent,
     RegisterComponent,
+    ListClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // Add automatically in the request header : 'Authorization: Bearer' + token
     JwtModule.forRoot({
       config: {
         tokenGetter: function  tokenGetter() {

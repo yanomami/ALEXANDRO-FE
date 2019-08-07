@@ -14,4 +14,7 @@ export class Client {
   addressByInvoiceAddressId: Address;
   addressByDeliveryAddressId: Address;
   paymentMethodByPaymentMethodId: PaymentMethod;
+
+  // tslint:disable-next-line:variable-name
+  _links: {self: {href: string}};
 }
