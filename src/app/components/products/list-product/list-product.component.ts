@@ -4,6 +4,7 @@ import {Product} from '../../../models/product.model';
 import {Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {CaddyService} from '../../../services/caddy.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-list-product',
@@ -74,7 +75,7 @@ export class ListProductComponent implements OnInit {
   }
 
   onAddProductToCaddy(product: Product, quantity: number, index: number) {
-    this.serviceCaddy.addProductToCaddy(product, quantity );
+    this.serviceCaddy.addProductToCaddy(product, quantity);
     // reset to default
     this.quantities[index] = 1;
   }
