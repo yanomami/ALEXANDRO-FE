@@ -18,8 +18,6 @@ export class ViewProductComponent implements OnInit {
   public currentItemProduct: Product;
   public currentItemBook: Book;
   public currentItemAuthor: Author;
-  quantity = 1;
-
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private serviceProduct: ProductService,
@@ -80,7 +78,5 @@ export class ViewProductComponent implements OnInit {
 
   onAddProductToCaddy(product: Product, quantity: number) {
     this.serviceCaddy.addProductToCaddy(product, quantity );
-    // reset to default
-    this.quantity = 1;
   }
 }
