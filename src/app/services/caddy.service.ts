@@ -95,7 +95,15 @@ export class CaddyService {
     localStorage.setItem('myCaddies', JSON.stringify(this.caddies, replacer));
   }
 
-  getTotalCurrentCaddy(): number {
+  getCurrentCaddyName(): string {
+    return this.getCurrentCaddy().name;
+  }
+
+  getCurrentCaddyNbItems(): number {
+    return this.getCurrentCaddy().items.size;
+  }
+
+  getCurrentCaddyPriceTotal(): number {
     let total = 0;
     const items: IterableIterator<ProductItem> = this.getCurrentCaddyItems();
     for (const item of items) {
