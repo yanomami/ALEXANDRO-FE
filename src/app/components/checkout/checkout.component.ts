@@ -5,7 +5,6 @@ import {Client} from '../../models/client.model';
 import {CaddyService} from '../../services/caddy.service';
 import {ProductItem} from '../../models/product-item.model';
 import {AddressService} from '../../services/address.service';
-import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -58,7 +57,7 @@ export class CheckoutComponent implements OnInit {
       );
   }
 
-  onCheckout(f: NgForm) {
-    this.caddyService.checkout();
+  onSubmitOrder() {
+    // TODO
   }
 }
