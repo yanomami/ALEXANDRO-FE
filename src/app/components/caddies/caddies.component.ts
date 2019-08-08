@@ -14,8 +14,17 @@ export class CaddiesComponent implements OnInit {
   constructor(private caddyService: CaddyService) { }
 
   ngOnInit() {
-    // Convert Map to Array
-    this.list = [...this.caddyService.getCurrentCaddyItems()];
+    this.list = this.getCurrentCaddyItems();
   }
 
+  getCurrentCaddyItems(): ProductItem[] {
+    // Convert Map to Array
+    return  [...this.caddyService.getCurrentCaddyItems()];
+  }
+
+  onRemoveProductFromCaddy(item: ProductItem) {
+    this.caddyService.removeProductToCaddy(item.product);
+    // Actualise list
+    this.list = this.getCurrentCaddyItems();
+  }
 }

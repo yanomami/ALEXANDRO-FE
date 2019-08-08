@@ -33,6 +33,12 @@ export class CaddyService {
     this.saveCaddies();
   }
 
+  public removeProductToCaddy(product: Product) {
+    const caddy = this.caddies.get(this.currentCaddyName);
+    caddy.items.delete(product.id);
+    this.saveCaddies();
+  }
+
   getCurrentCaddy(): Caddy {
     return this.caddies.get(this.currentCaddyName);
   }

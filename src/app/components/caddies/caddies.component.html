@@ -17,6 +17,9 @@
     <td>{{item.quantity}}</td>
     <td>{{item.product.priceExVat | number:'0.2'}}</td>
     <td>{{(item.product.priceExVat * item.quantity) | number:'0.2'}}</td>
+
+    <td><a class="btn btn-danger" (click)="onRemoveProductFromCaddy(item)">Delete</a></td>
+
   </tr>
   <tr>
     <td colspan="4">Total</td>
@@ -24,5 +27,7 @@
   </tr>
   </tbody>
 </table>
+
+  <button class="btn btn-success" (click)="onOrder()">Order</button>
 
 </div>
