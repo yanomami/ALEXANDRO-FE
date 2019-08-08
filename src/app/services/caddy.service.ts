@@ -12,15 +12,11 @@ export class CaddyService {
   private caddies: Map<string, Caddy> = new Map();
 
   constructor() {
-/*    const caddies = localStorage.getItem('myCaddies');
-    if (caddies) {
-      this.caddies = JSON.parse(caddies);
-    } else {
+
+    if (!this.loadCaddies()) {
       const caddy = new Caddy(this.currentCaddyName);
       this.caddies.set(this.currentCaddyName, caddy);
-    }*/
-    const caddy = new Caddy(this.currentCaddyName);
-    this.caddies.set(this.currentCaddyName, caddy);
+    }
   }
 
   public addProductToCaddy(product: Product, quantity: number) {
@@ -45,8 +41,46 @@ export class CaddyService {
     return this.getCurrentCaddy().items.values();
   }
 
+  public loadCaddies(): boolean {
+
+    let isLoaded = false;
+
+    const caddies = localStorage.getItem('myCaddies');
+    if (caddies) {
+
+      // Convert Array to Map after serialization
+      function reviver(key, value) {
+        if (typeof value === 'object' && value !== null) {
+          if (value.dataType === 'Map') {
+            return new Map(value.value);
+          }
+        }
+        return value;
+      }
+
+      this.caddies = JSON.parse(caddies, reviver);
+      isLoaded = true;
+    }
+
+    return isLoaded;
+  }
+
   public saveCaddies() {
-    localStorage.setItem('myCaddies', JSON.stringify(this.caddies));
+
+    // Convert Map to Array before serialization
+    function replacer(key, value) {
+      const originalObject = this[key];
+      if (originalObject instanceof Map) {
+        return {
+          dataType: 'Map',
+          value: Array.from(originalObject.entries()), // or with spread: value: [...originalObject]
+        };
+      } else {
+        return value;
+      }
+    }
+
+    localStorage.setItem('myCaddies', JSON.stringify(this.caddies, replacer));
   }
 
   getTotalCurrentCaddy(): number {
