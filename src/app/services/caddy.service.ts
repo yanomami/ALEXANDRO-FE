@@ -3,6 +3,7 @@ import {Caddy} from '../models/caddy.model';
 import {ProductItem} from '../models/product-item.model';
 import {Product} from '../models/product.model';
 import {Client} from '../models/client.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CaddyService {
   private currentCaddyName = 'Caddy1';
   private caddies: Map<string, Caddy> = new Map();
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
     if (!this.loadCaddies()) {
       const caddy = new Caddy(this.currentCaddyName);
@@ -112,7 +113,14 @@ export class CaddyService {
     return total;
   }
 
-  setClientToCaddy(client: Client) {
+  setCurrentCaddyClient(client: Client) {
     this.getCurrentCaddy().client = client;
+    this.saveCaddies();
   }
+
+  public checkout() {
+    const host  = 'http://localhost:8080/alexandro';
+    // return this.http.post(host, resource);
+  }
+
 }

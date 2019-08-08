@@ -5,6 +5,7 @@ import {Client} from '../../models/client.model';
 import {CaddyService} from '../../services/caddy.service';
 import {ProductItem} from '../../models/product-item.model';
 import {AddressService} from '../../services/address.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -48,6 +49,8 @@ export class CheckoutComponent implements OnInit {
     this.addressService.getSingle(url)
       .subscribe(data => {
           user.addressByInvoiceAddressId = data;
+
+          this.caddyService.setCurrentCaddyClient(user);
         },
         error => {
           console.log('Error ! : ' + error);
@@ -55,4 +58,7 @@ export class CheckoutComponent implements OnInit {
       );
   }
 
+  onCheckout(f: NgForm) {
+    this.caddyService.checkout();
+  }
 }
