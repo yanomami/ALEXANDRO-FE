@@ -16,8 +16,6 @@ import {CaddyService} from '../../../services/caddy.service';
 export class ViewProductComponent implements OnInit {
 
   public currentItemProduct: Product;
-  public currentItemBook: Book;
-  public currentItemAuthor: Author;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private serviceProduct: ProductService,
@@ -34,7 +32,7 @@ export class ViewProductComponent implements OnInit {
     this.serviceProduct.getSingle(url)
       .subscribe(data => {
           this.currentItemProduct = data;
-          this.getBook();
+          this.getBook(this.currentItemProduct);
         },
         error => {
           console.log('Error ! : ' + error);
@@ -42,12 +40,12 @@ export class ViewProductComponent implements OnInit {
       );
   }
 
-  getBook() {
-    const url = this.currentItemProduct._links.bookById.href;
+  getBook(product: Product) {
+    const url = product._links.bookById.href;
     this.serviceBook.getSingle(url)
       .subscribe(data => {
-          this.currentItemBook = this.currentItemProduct.bookById = data;
-          this.getAuthor();
+          product.bookById = data;
+          this.getAuthor(product.bookById);
         },
         error => {
           console.log('Error ! : ' + error);
@@ -55,11 +53,11 @@ export class ViewProductComponent implements OnInit {
       );
   }
 
-  getAuthor() {
-    const url = this.currentItemBook._links.authorByAuthorId.href;
+  getAuthor(book: Book) {
+    const url = book._links.authorByAuthorId.href;
     this.serviceAuthor.getSingle(url)
       .subscribe(data => {
-          this.currentItemAuthor = this.currentItemProduct.bookById.authorByAuthorId = data;
+          book.authorByAuthorId = data;
         },
         error => {
           console.log('Error ! : ' + error);

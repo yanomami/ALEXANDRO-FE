@@ -15,7 +15,7 @@
 <body>
 
 <!-- Page Content -->
-<div class="container" *ngIf="currentItemProduct && currentItemBook && currentItemAuthor">
+<div class="container" *ngIf="currentItemProduct && currentItemProduct.bookById && currentItemProduct.bookById.authorByAuthorId">
 
   <div class="row">
 
