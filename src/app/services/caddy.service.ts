@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Caddy} from '../models/caddy.model';
 import {ProductItem} from '../models/product-item.model';
 import {Product} from '../models/product.model';
+import {Client} from '../models/client.model';
 
 @Injectable({
   providedIn: 'root'
@@ -96,5 +97,9 @@ export class CaddyService {
       total += item.product.priceExVat * item.quantity;
     }
     return total;
+  }
+
+  setClientToCaddy(client: Client) {
+    this.getCurrentCaddy().client = client;
   }
 }
