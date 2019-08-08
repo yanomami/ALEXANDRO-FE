@@ -4,7 +4,7 @@ import {ShippingMethod} from './shippingMethod.model';
 export class Order {
   client: Client;
   shippingMethod: ShippingMethod;
-  productItems = new Array<Item>();
+  productItems: Item[] = new Array<Item>();
 }
 
 export class Item {
