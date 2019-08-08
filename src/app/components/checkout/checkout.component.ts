@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../services/authentication.service';
+import {ClientService} from '../../services/client.service';
+import {Client} from '../../models/client.model';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  constructor( private authService: AuthenticationService,
+               private clientService: ClientService) { }
+
+   user: Client;
 
   ngOnInit() {
+    const username: string = this.authService.getUsername();
+
+    this.clientService.getSingleByUsername(username)
+      .subscribe(data => {
+          this.user = data;
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );
   }
 
 }

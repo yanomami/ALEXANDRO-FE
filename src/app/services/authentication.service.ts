@@ -26,6 +26,10 @@ export class AuthenticationService {
     return this.http.post<ApiResponse>(this.host + '/register', user);
   }
 
+  getUsername(): string {
+    return this.jwtHelper.decodeToken(this.jwtToken).sub;
+  }
+
   saveToken(jwtToken: string) {
     this.jwtToken = jwtToken;
     localStorage.setItem('token', jwtToken);
@@ -43,4 +47,5 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('token');
   }
+
 }
