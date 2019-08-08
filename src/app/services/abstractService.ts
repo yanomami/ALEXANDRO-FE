@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {ListResult} from '../models/list-result.model';
+import {Observable} from 'rxjs';
 
 export abstract class AbstractService<T> {
 
@@ -8,14 +9,14 @@ export abstract class AbstractService<T> {
   protected constructor(protected http: HttpClient) {
   }
 
-  public getList(page: number, size: number) {
+  public getList(page: number, size: number): Observable<ListResult<T>> {
     return this.http.get<ListResult<T>>(
       this.url
       + '?page=' + page
       + '&size=' + size);
   }
 
-  public getSingle(url: string) {
+  public getSingle(url: string): Observable<T> {
     return this.http.get<T>(url);
   }
 
