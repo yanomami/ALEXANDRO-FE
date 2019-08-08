@@ -19,19 +19,12 @@ export class ListProductComponent implements OnInit {
   private totalPages: number;
   public pages: Array<number>;
 
-  quantities = new Array<number>(this.size);
-
   constructor(private router: Router,
               private service: ProductService,
               private serviceCaddy: CaddyService) { }
 
   ngOnInit() {
     this.getList();
-
-    // Set default quantity for each product
-    for (let i = 0; i < this.quantities.length; i++) {
-      this.quantities[i] = 1;
-    }
   }
 
   getList() {
@@ -74,10 +67,8 @@ export class ListProductComponent implements OnInit {
     this.router.navigateByUrl('/products/view/' + btoa(url));
   }
 
-  onAddProductToCaddy(product: Product, quantity: number, index: number) {
+  onAddProductToCaddy(product: Product, quantity: number) {
     this.serviceCaddy.addProductToCaddy(product, quantity);
-    // reset to default
-    this.quantities[index] = 1;
   }
 }
 
