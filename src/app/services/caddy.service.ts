@@ -44,8 +44,13 @@ export class CaddyService {
     return this.caddies.get(this.currentCaddyName);
   }
 
-  getCurrentCaddyItems(): IterableIterator<ProductItem> {
+  private getCurrentCaddyItems(): IterableIterator<ProductItem> {
     return this.getCurrentCaddy().items.values();
+  }
+
+  getCurrentCaddyItemsArray(): ProductItem[] {
+    // Convert Map to Array
+    return  [...this.getCurrentCaddyItems()];
   }
 
   public loadCaddies(): boolean {
