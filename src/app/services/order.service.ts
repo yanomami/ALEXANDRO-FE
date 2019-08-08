@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CaddyService} from './caddy.service';
-import {Caddy} from '../models/caddy.model';
 import {OrderHeader} from '../models/orderHeader.model';
-import {Client} from '../models/client.model';
-import {ShippingMethod} from '../models/shippingMethod.model';
-import {OrderLine} from '../models/orderLine.model';
-import {Product} from '../models/product.model';
-import {ProductItem} from '../models/product-item.model';
 
 @Injectable({
   providedIn: 'root'
