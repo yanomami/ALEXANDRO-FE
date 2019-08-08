@@ -26,7 +26,10 @@ export class ViewProductComponent implements OnInit {
               private serviceCaddy: CaddyService) { }
 
   ngOnInit() {
-    // Get product
+    this.getProduct();
+  }
+
+  getProduct() {
     const url = atob(this.activatedRoute.snapshot.params.id);
     this.serviceProduct.getSingle(url)
       .subscribe(data => {
@@ -43,7 +46,7 @@ export class ViewProductComponent implements OnInit {
     const url = this.currentItemProduct._links.bookById.href;
     this.serviceBook.getSingle(url)
       .subscribe(data => {
-          this.currentItemBook = data;
+          this.currentItemBook = this.currentItemProduct.bookById = data;
           this.getAuthor();
         },
         error => {
@@ -56,7 +59,7 @@ export class ViewProductComponent implements OnInit {
     const url = this.currentItemBook._links.authorByAuthorId.href;
     this.serviceAuthor.getSingle(url)
       .subscribe(data => {
-          this.currentItemAuthor = data;
+          this.currentItemAuthor = this.currentItemProduct.bookById.authorByAuthorId = data;
         },
         error => {
           console.log('Error ! : ' + error);

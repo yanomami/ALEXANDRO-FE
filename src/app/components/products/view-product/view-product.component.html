@@ -32,11 +32,11 @@
               </h4>
               <h5>${{currentItemProduct.priceExVat}}</h5>
               <h5>Stock: {{currentItemProduct.stock}}</h5>
-              <p class="card-text"><strong>Isbn:</strong> {{currentItemBook.isbn}}</p>
-              <p class="card-text"><strong>Title:</strong> {{currentItemBook.title}}</p>
-              <p class="card-text"><strong>Nb pages:</strong> {{currentItemBook.nbPages}}</p>
-              <p class="card-text"><strong>Author:</strong> {{currentItemAuthor.firstName}} {{currentItemAuthor.lastName}}</p>
-              <p class="small"><strong>Bio:</strong> {{currentItemAuthor.bio}}</p>
+              <p class="card-text"><strong>Isbn:</strong> {{currentItemProduct.bookById.isbn}}</p>
+              <p class="card-text"><strong>Title:</strong> {{currentItemProduct.bookById.title}}</p>
+              <p class="card-text"><strong>Nb pages:</strong> {{currentItemProduct.bookById.nbPages}}</p>
+              <p class="card-text"><strong>Author:</strong> {{currentItemProduct.bookById.authorByAuthorId.firstName}} {{currentItemProduct.bookById.authorByAuthorId.lastName}}</p>
+              <p class="small"><strong>Bio:</strong> {{currentItemProduct.bookById.authorByAuthorId.bio}}</p>
 
               <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(currentItemProduct, f.value.quantity)">
                 <label for="quantity" class="control-label">Quantity:</label>

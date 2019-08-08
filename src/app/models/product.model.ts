@@ -1,3 +1,5 @@
+import {Book} from './book.model';
+
 export class Product {
 
   id: number;
@@ -5,6 +7,7 @@ export class Product {
   stock: number;
   priceExVat: number;
   picture: Int8Array;
+  bookById: Book;
   // tslint:disable-next-line:variable-name
   _links: {self: {href: string}, bookById: {href: string}};
 }

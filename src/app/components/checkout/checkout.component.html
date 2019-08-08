@@ -14,7 +14,7 @@
         <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of items">
           <div>
             <h6 class="my-0">{{item.product.name}}</h6>
-            <small class="text-muted"> - </small>
+            <small class="text-muted"> {{item.product.bookById.authorByAuthorId.lastName}} </small>
           </div>
           <span class="text-muted">${{item.product.priceExVat}}</span>
         </li>
