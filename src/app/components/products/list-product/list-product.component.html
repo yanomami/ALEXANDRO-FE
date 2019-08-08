@@ -35,9 +35,9 @@
               <h5>Stock: {{item.stock}}</h5>
             </div>
             <div class="card-footer">
-              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, quantities[index], index)">
+              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(item, f.value.quantity, index)">
                 <label for="quantity" class="control-label">Quantity:</label>
-                <input type="number" min=1 id="quantity" name="quantity" ngModel style="width: 40px" [(ngModel)]="quantities[index]"/>
+                <input type="number" [ngModel]="1" min=1 id="quantity" name="quantity" style="width: 40px"/>
                 <button>Add Cart</button>
               </form>
             </div>
