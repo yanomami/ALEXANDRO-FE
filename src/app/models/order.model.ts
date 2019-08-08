@@ -9,6 +9,4 @@ export class OrderHeader {
   comment: string;
   clientByClientId: Client;
   shippingMethodByShippingMethodId: ShippingMethod;
-  }
-
-
+}
