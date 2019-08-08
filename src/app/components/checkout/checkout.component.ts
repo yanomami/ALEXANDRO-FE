@@ -13,7 +13,7 @@ export class CheckoutComponent implements OnInit {
   constructor( private authService: AuthenticationService,
                private clientService: ClientService) { }
 
-   user: Client;
+   public user: Client;
 
   ngOnInit() {
     const username: string = this.authService.getUsername();
