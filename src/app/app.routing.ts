@@ -12,6 +12,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ListClientComponent} from './components/clients/list-client/list-client.component';
 import {CaddiesComponent} from './components/caddies/caddies.component';
+import {CheckoutComponent} from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'products/view/:id', component: ViewProductComponent},
   {path: 'clients', component: ListClientComponent},
   {path: 'caddies', component: CaddiesComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path: 'home', component: HomeComponent },
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: '**', redirectTo: 'home' }
