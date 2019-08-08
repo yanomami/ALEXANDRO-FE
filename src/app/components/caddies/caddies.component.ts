@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CaddyService} from '../../services/caddy.service';
 import {ProductItem} from '../../models/product-item.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-caddies',
@@ -11,7 +12,8 @@ export class CaddiesComponent implements OnInit {
 
   public list: ProductItem[];
 
-  constructor(private caddyService: CaddyService) { }
+  constructor(private router: Router,
+              private caddyService: CaddyService) { }
 
   ngOnInit() {
     this.list = this.caddyService.getCurrentCaddyItemsArray();
@@ -21,5 +23,9 @@ export class CaddiesComponent implements OnInit {
     this.caddyService.removeProductToCaddy(item.product);
     // Actualise list
     this.list = this.caddyService.getCurrentCaddyItemsArray();
+  }
+
+  onCheckout() {
+    this.router.navigateByUrl('/checkout');
   }
 }
