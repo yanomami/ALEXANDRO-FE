@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     if (data.status === 200) {
       const jwtToken = data.result.token;
       this.authService.saveToken(jwtToken);
-      this.router.navigateByUrl('/products').then(r => alert('Sign-in OK'));
+      this.router.navigateByUrl('/products').then();
     } else {
       this.invalidLogin = true;
       alert(data.message);
