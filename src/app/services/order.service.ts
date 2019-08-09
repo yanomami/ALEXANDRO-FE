@@ -28,6 +28,10 @@ export class OrderService {
   }
 
   private makeOrderFromCaddy() {
+
+    // Clear product items array (trick)
+    this.order.productItems.length = 0;
+
     const caddy: Caddy = this.caddyService.getCurrentCaddy();
     this.order.idClient = caddy.client.id;
 
