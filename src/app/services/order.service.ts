@@ -19,6 +19,7 @@ export class OrderService {
               private caddyService: CaddyService ) { }
 
   submitOrder() {
+    this.makeOrderFromCaddy();
     return this.http.post(this.host + '/orders', this.order);
   }
 
@@ -26,7 +27,7 @@ export class OrderService {
     return this.http.get<OrderHeader>(this.host + '/orders' + id);
   }
 
-  makeOrderFromCaddy() {
+  private makeOrderFromCaddy() {
     const caddy: Caddy = this.caddyService.getCurrentCaddy();
     this.order.client = caddy.client;
     const productItems: ProductItem[] = this.caddyService.getCurrentCaddyItemsArray();
