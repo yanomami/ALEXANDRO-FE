@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" *ngIf="caddyService.getCurrentCaddyNbItems() !== 0">
     <div class="col-md-12">
       <div class="col text-center">
         <div class="breadcrumb">
@@ -40,6 +40,8 @@
   </tbody>
 </table>
 
-<a class="btn btn-success" (click)="onCheckout()">Checkout</a>
+  <div *ngIf="caddyService.getCurrentCaddyNbItems() !== 0">
+    <a class="btn btn-success" (click)="onCheckout()">Checkout</a>
+  </div>
 
 </div>
