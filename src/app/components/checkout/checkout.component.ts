@@ -60,6 +60,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmitOrder() {
-    this.orderService.submitOrder();
-  }
+    this.orderService.submitOrder()
+      .subscribe(data => {
+        console.log('OK');
+        },
+        error => {
+          console.log('Error ! : ' + error);
+        }
+      );  }
 }
