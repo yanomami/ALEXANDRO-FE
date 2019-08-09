@@ -3,7 +3,6 @@ import {ShippingMethod} from './shippingMethod.model';
 
 export class Order {
   idClient: number;
-  shippingMethod: ShippingMethod;
   productItems: Item[] = new Array<Item>();
 }
 
