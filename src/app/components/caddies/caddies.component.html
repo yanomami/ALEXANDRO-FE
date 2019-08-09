@@ -40,6 +40,8 @@
   </tbody>
 </table>
 
-<a class="btn btn-success" (click)="onCheckout()">Checkout</a>
+  <div *ngIf="list">
+    <a class="btn btn-success" (click)="onCheckout()">Checkout</a>
+  </div>
 
 </div>
