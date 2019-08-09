@@ -29,7 +29,7 @@ export class OrderService {
 
   private makeOrderFromCaddy() {
 
-    // Clear product items array (trick)
+    // Clear product items array (trick) frm previous order
     this.order.productItems.length = 0;
 
     const caddy: Caddy = this.caddyService.getCurrentCaddy();
