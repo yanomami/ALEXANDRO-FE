@@ -29,7 +29,7 @@ export class OrderService {
 
   private makeOrderFromCaddy() {
     const caddy: Caddy = this.caddyService.getCurrentCaddy();
-    this.order.client = caddy.client;
+    this.order.idClient = caddy.client.id;
 
     const productItems: ProductItem[] = this.caddyService.getCurrentCaddyItemsArray();
 
