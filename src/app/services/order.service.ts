@@ -39,11 +39,5 @@ export class OrderService {
       item.quantity = p.quantity;
       this.order.productItems.push(item);
     });
-
-/*    for ( let i = 0; i < productItems.length; i++) {
-      this.order.productItems[i] = new Item();
-      this.order.productItems[i].id = productItems[i].product.id;
-      this.order.productItems[i].quantity = productItems[i].quantity;
-    }*/
   }
 }
