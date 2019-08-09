@@ -53,7 +53,7 @@ export class CaddyService {
     return  [...this.getCurrentCaddyItems()];
   }
 
-  public loadCaddies(): boolean {
+  private loadCaddies(): boolean {
 
     let isLoaded = false;
 
@@ -77,7 +77,7 @@ export class CaddyService {
     return isLoaded;
   }
 
-  public saveCaddies() {
+  private saveCaddies() {
 
     // Convert Map to Array before serialization
     function replacer(key, value) {
