@@ -64,7 +64,6 @@ export class CheckoutComponent implements OnInit {
   onSubmitOrder() {
     this.orderService.submitOrder()
       .subscribe(data => {
-        console.log('SUBMIT ORDER DONE');
         this.caddyService.setCurrentCaddyOrderHeader(data);
         this.router.navigateByUrl('/orderResume');
         },

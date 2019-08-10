@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CaddyService} from '../../services/caddy.service';
+import {Router} from '@angular/router';
+import {OrderHeader} from '../../models/entities/orderHeader.model';
 
 @Component({
   selector: 'app-order-resume',
@@ -8,9 +10,14 @@ import {CaddyService} from '../../services/caddy.service';
 })
 export class OrderResumeComponent implements OnInit {
 
-  constructor(public caddyService: CaddyService) { }
+  constructor(private router: Router,
+              public caddyService: CaddyService) { }
 
   ngOnInit() {
   }
 
+  onView(item: OrderHeader) {
+    const url = item._links.self.href;
+    this.router.navigateByUrl('/orderHeaders/view/' + btoa(url));
+  }
 }

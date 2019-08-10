@@ -17,6 +17,7 @@
   </div>
   <div class="alert alert-success" *ngIf="caddyService.getCurrentCaddyOrderHeader()">
     Order number <strong>{{caddyService.getCurrentCaddyOrderHeader().id}}</strong> submitted on {{caddyService.getCurrentCaddyOrderHeader().datePlaced}}
+    <a class="btn btn-success" (click)="onView(caddyService.getCurrentCaddyOrderHeader())">View details</a>
   </div>
 
 </div>
