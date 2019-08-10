@@ -58,18 +58,18 @@ export class CaddyService {
     let isLoaded = false;
 
     const caddies = localStorage.getItem('myCaddies');
-    if (caddies) {
 
-      // Convert Array to Map after serialization
-      const reviver = (key, value) => {
-        if (typeof value === 'object' && value !== null) {
-          if (value.dataType === 'Map') {
-            return new Map(value.value);
-          }
+    // Convert Array to Map after serialization
+    function reviver(key, value) {
+      if (typeof value === 'object' && value !== null) {
+        if (value.dataType === 'Map') {
+          return new Map(value.value);
         }
-        return value;
-      };
+      }
+      return value;
+    }
 
+    if (caddies) {
       this.caddies = JSON.parse(caddies, reviver);
       isLoaded = true;
     }
