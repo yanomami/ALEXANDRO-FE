@@ -13,7 +13,7 @@ export class CaddiesComponent implements OnInit {
   public list: ProductItem[];
 
   constructor(private router: Router,
-              private caddyService: CaddyService) { }
+              public caddyService: CaddyService) { }
 
   ngOnInit() {
     this.list = this.caddyService.getCurrentCaddyItemsArray();

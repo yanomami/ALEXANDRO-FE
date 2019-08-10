@@ -22,7 +22,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ListClientComponent } from './components/clients/list-client/list-client.component';
 import { CaddiesComponent } from './components/caddies/caddies.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { OrderResumeComponent } from './components/order-resume/order-resume.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -46,7 +45,6 @@ export function tokenGetter() {
     ListClientComponent,
     CaddiesComponent,
     CheckoutComponent,
-    OrderResumeComponent,
   ],
   imports: [
     BrowserModule,
