@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CountryService} from '../../../services/country.service';
-import {Country} from '../../../models/country.model';
+import {Country} from '../../../models/entities/country.model';
 
 @Component({
   selector: 'app-edit-country',

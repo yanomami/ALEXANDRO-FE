@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AbstractService} from './abstractService';
-import {Product} from '../models/product.model';
+import {Product} from '../models/entities/product.model';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({

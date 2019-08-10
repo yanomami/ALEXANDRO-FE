@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CaddyService} from './caddy.service';
-import {OrderHeader} from '../models/orderHeader.model';
+import {OrderHeader} from '../models/entities/orderHeader.model';
 import {Item, Order} from '../models/order.model';
 import {Caddy} from '../models/caddy.model';
 import {ProductItem} from '../models/product-item.model';

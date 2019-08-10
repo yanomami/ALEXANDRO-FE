@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../../models/product.model';
+import {Product} from '../../../models/entities/product.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {BookService} from '../../../services/book.service';
-import {Book} from '../../../models/book.model';
-import {Author} from '../../../models/author.model';
+import {Book} from '../../../models/entities/book.model';
+import {Author} from '../../../models/entities/author.model';
 import {AuthorService} from '../../../services/author.service';
 import {CaddyService} from '../../../services/caddy.service';
 

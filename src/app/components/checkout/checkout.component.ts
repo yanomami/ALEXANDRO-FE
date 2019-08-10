@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {ClientService} from '../../services/client.service';
-import {Client} from '../../models/client.model';
+import {Client} from '../../models/entities/client.model';
 import {CaddyService} from '../../services/caddy.service';
 import {ProductItem} from '../../models/product-item.model';
 import {AddressService} from '../../services/address.service';

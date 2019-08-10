@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CountryService} from '../../../services/country.service';
-import {ListResult} from '../../../models/list-result.model';
-import {Country} from '../../../models/country.model';
+import {ListResult} from '../../../models/entities/list-result.model';
+import {Country} from '../../../models/entities/country.model';
 import {Router} from '@angular/router';
 
 @Component({

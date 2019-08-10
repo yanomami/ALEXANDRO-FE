@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ListResult} from '../../../models/list-result.model';
-import {Country} from '../../../models/country.model';
+import {ListResult} from '../../../models/entities/list-result.model';
+import {Country} from '../../../models/entities/country.model';
 import {CountryService} from '../../../services/country.service';
 import {NgForm} from '@angular/forms';
 

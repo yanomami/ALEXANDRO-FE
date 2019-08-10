@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {ListResult} from '../../../models/list-result.model';
-import {Product} from '../../../models/product.model';
+import {ListResult} from '../../../models/entities/list-result.model';
+import {Product} from '../../../models/entities/product.model';
 import {Router} from '@angular/router';
 import {ProductService} from '../../../services/product.service';
 import {CaddyService} from '../../../services/caddy.service';
 import {BookService} from '../../../services/book.service';
 import {AuthorService} from '../../../services/author.service';
-import {Book} from '../../../models/book.model';
+import {Book} from '../../../models/entities/book.model';
 
 @Component({
   selector: 'app-list-product',

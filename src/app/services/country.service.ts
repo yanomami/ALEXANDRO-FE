@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Country} from '../models/country.model';
-import {ListResult} from '../models/list-result.model';
+import {Country} from '../models/entities/country.model';
+import {ListResult} from '../models/entities/list-result.model';
 import {AbstractService} from './abstractService';
 
 @Injectable({

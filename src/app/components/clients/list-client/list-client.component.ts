@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ListResult} from '../../../models/list-result.model';
-import {Client} from '../../../models/client.model';
+import {ListResult} from '../../../models/entities/list-result.model';
+import {Client} from '../../../models/entities/client.model';
 import {Router} from '@angular/router';
 import {ClientService} from '../../../services/client.service';
 

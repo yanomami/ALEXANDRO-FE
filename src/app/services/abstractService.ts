@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {ListResult} from '../models/list-result.model';
+import {ListResult} from '../models/entities/list-result.model';
 import {Observable} from 'rxjs';
 
 export abstract class AbstractService<T> {

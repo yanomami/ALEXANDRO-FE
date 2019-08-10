@@ -1,4 +1,4 @@
-import {Client} from './client.model';
+import {Client} from './entities/client.model';
 import {ProductItem} from './product-item.model';
 
 export class Caddy {
