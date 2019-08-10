@@ -14,6 +14,7 @@ import {ListClientComponent} from './components/clients/list-client/list-client.
 import {CaddiesComponent} from './components/caddies/caddies.component';
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {OrderResumeComponent} from './components/order-resume/order-resume.component';
+import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'products', component: ListProductComponent},
   {path: 'products/view/:id', component: ViewProductComponent},
   {path: 'clients', component: ListClientComponent},
+  {path: 'orderHeaders', component: ListOrderHeaderComponent},
   {path: 'caddies', component: CaddiesComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'orderResume', component: OrderResumeComponent},

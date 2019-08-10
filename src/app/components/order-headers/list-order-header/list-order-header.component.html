@@ -1,0 +1,34 @@
+<div class="container">
+
+  <a class="btn btn-success" routerLink="/countries/add" role="button">Add item</a>
+
+  <table class="table table-hover table-dark" *ngIf="list">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date Placed</th>
+      <th scope="col">Date Shipped</th>
+      <th scope="col">Date Delivered</th>
+<!--      <th scope="col">Comment</th>-->
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list._embedded.results">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.datePlaced}}</td>
+      <td>{{item.dateShipped}}</td>
+      <td>{{item.dateDelivered}}</td>
+<!--      <td>{{item.comment}}</td>-->
+
+      <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
+    </tr>
+    </tbody>
+    <ul *ngIf="pages" class="nav nav-pills">
+      <li *ngFor="let page of pages; let i=index" class="nav-item">
+        <a class="nav-link clickable" [ngClass]="i==currentPage?'active':''" (click)="onPage(i)">{{i}}</a>
+      </li>
+    </ul>
+  </table>
+
+</div>

@@ -23,6 +23,7 @@ import { ListClientComponent } from './components/clients/list-client/list-clien
 import { CaddiesComponent } from './components/caddies/caddies.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderResumeComponent } from './components/order-resume/order-resume.component';
+import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,6 +48,7 @@ export function tokenGetter() {
     CaddiesComponent,
     CheckoutComponent,
     OrderResumeComponent,
+    ListOrderHeaderComponent,
   ],
   imports: [
     BrowserModule,
