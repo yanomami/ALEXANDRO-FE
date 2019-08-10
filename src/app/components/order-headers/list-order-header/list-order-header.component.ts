@@ -3,6 +3,7 @@ import {ListResult} from '../../../models/entities/list-result.model';
 import {OrderHeader} from '../../../models/entities/orderHeader.model';
 import {Router} from '@angular/router';
 import {OrderHeaderService} from '../../../services/order-header.service';
+import {Country} from '../../../models/entities/country.model';
 
 @Component({
   selector: 'app-list-order-header',
@@ -51,6 +52,11 @@ export class ListOrderHeaderComponent implements OnInit {
           console.log('Error ! : ' + error);
         }
       );
+  }
+
+  onView(item: OrderHeader) {
+    const url = item._links.self.href;
+    this.router.navigateByUrl('/orderHeaders/view/' + btoa(url));
   }
 
 }

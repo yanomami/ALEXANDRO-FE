@@ -1,7 +1,5 @@
 <div class="container">
 
-  <a class="btn btn-success" routerLink="/countries/add" role="button">Add item</a>
-
   <table class="table table-hover table-dark" *ngIf="list">
     <thead>
     <tr>
@@ -21,6 +19,7 @@
       <td>{{item.dateDelivered}}</td>
 <!--      <td>{{item.comment}}</td>-->
 
+      <td><a class="btn btn-success" (click)="onView(item)">View</a></td>
       <td><a class="btn btn-danger" (click)="onDelete(item)">Delete</a></td>
     </tr>
     </tbody>

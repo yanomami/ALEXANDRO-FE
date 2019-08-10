@@ -15,6 +15,7 @@ import {CaddiesComponent} from './components/caddies/caddies.component';
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {OrderResumeComponent} from './components/order-resume/order-resume.component';
 import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
+import {ViewOrderHeaderComponent} from './components/order-headers/view-order-header/view-order-header.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'products/view/:id', component: ViewProductComponent},
   {path: 'clients', component: ListClientComponent},
   {path: 'orderHeaders', component: ListOrderHeaderComponent},
+  {path: 'orderHeaders/view/:id', component: ViewOrderHeaderComponent},
   {path: 'caddies', component: CaddiesComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'orderResume', component: OrderResumeComponent},

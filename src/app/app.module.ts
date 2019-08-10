@@ -24,6 +24,7 @@ import { CaddiesComponent } from './components/caddies/caddies.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderResumeComponent } from './components/order-resume/order-resume.component';
 import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
+import { ViewOrderHeaderComponent } from './components/order-headers/view-order-header/view-order-header.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -49,6 +50,7 @@ export function tokenGetter() {
     CheckoutComponent,
     OrderResumeComponent,
     ListOrderHeaderComponent,
+    ViewOrderHeaderComponent,
   ],
   imports: [
     BrowserModule,

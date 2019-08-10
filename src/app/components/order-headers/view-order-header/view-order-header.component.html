@@ -1,0 +1,47 @@
+<div class="container" *ngIf="currentItem && currentItem.clientByClientId">
+
+  <h3>Header</h3>
+
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date Placed</th>
+      <th scope="col">Date Delivered</th>
+      <th scope="col">Date Shipped</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">{{currentItem.id}}</th>
+      <td>{{currentItem.datePlaced}}</td>
+      <td>{{currentItem.dateDelivered}}</td>
+      <td>{{currentItem.dateShipped}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <h3>Client</h3>
+
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Username(email)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">{{currentItem.clientByClientId.id}}</th>
+      <td>{{currentItem.clientByClientId.firstName}}</td>
+      <td>{{currentItem.clientByClientId.lastName}}</td>
+      <td>{{currentItem.clientByClientId.email}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
