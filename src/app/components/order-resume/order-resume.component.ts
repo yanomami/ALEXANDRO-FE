@@ -17,7 +17,7 @@ export class OrderResumeComponent implements OnInit {
   }
 
   onView(item: OrderHeader) {
-    const url = item._links.self.href;
+    const url = 'http://localhost:8080/alexandro/orderHeaders/' + item.id; // TODO : not clean
     this.router.navigateByUrl('/orderHeaders/view/' + btoa(url));
   }
 }
