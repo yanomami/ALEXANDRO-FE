@@ -65,18 +65,6 @@ export class ViewProductComponent implements OnInit {
       );
   }
 
-  onUpdate(item: Product) {
-    const url = item._links.self.href;
-    this.serviceProduct.update(url, item)
-      .subscribe(data => {
-          this.router.navigateByUrl('/products');
-        },
-        error => {
-          console.log('Error ! : ' + error);
-        }
-      );
-  }
-
   onAddProductToCaddy(product: Product, quantity: number) {
     this.serviceCaddy.addProductToCaddy(product, quantity );
   }
