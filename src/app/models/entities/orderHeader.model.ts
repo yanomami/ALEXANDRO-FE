@@ -11,5 +11,9 @@ export class OrderHeader {
   shippingMethodByShippingMethodId: ShippingMethod;
 
   // tslint:disable-next-line:variable-name
-  _links: {self: {href: string}, clientByClientId: {href: string}};
+  _links: {
+    self: {href: string},
+    orderLinesById: {href: string},
+    clientByClientId: {href: string}
+  };
 }

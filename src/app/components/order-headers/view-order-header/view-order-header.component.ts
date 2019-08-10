@@ -3,6 +3,9 @@ import {OrderHeaderService} from '../../../services/order-header.service';
 import {OrderHeader} from '../../../models/entities/orderHeader.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ClientService} from '../../../services/client.service';
+import {ListResult} from '../../../models/entities/list-result.model';
+import {Product} from '../../../models/entities/product.model';
+import {OrderLine} from '../../../models/entities/orderLine.model';
 
 @Component({
   selector: 'app-view-order-header',
@@ -12,6 +15,7 @@ import {ClientService} from '../../../services/client.service';
 export class ViewOrderHeaderComponent implements OnInit {
 
   public currentItem: OrderHeader;
+  public orderLines: ListResult<OrderLine>;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               private orderHeaderService: OrderHeaderService,
@@ -27,6 +31,7 @@ export class ViewOrderHeaderComponent implements OnInit {
       .subscribe(data => {
           this.currentItem = data;
           this.getClient(this.currentItem);
+          this.getOrderlines(this.currentItem);
         },
         error => {
           console.log('Error ! : ' + error);
@@ -39,7 +44,6 @@ export class ViewOrderHeaderComponent implements OnInit {
     this.clientService.getSingle(url)
       .subscribe(data => {
           orderHeader.clientByClientId = data;
-          // this.getOrderlines(orderHeader.bookById);
         },
         error => {
           console.log('Error ! : ' + error);
@@ -47,16 +51,16 @@ export class ViewOrderHeaderComponent implements OnInit {
       );
   }
 
-/*  getAuthor(book: Book) {
-    const url = book._links.authorByAuthorId.href;
-    this.serviceAuthor.getSingle(url)
+  getOrderlines(orderHeader: OrderHeader) {
+    const url = orderHeader._links.orderLinesById.href;
+    this.orderHeaderService.getOrderLines(url)
       .subscribe(data => {
-          book.authorByAuthorId = data;
+          this.orderLines = data;
         },
         error => {
           console.log('Error ! : ' + error);
         }
       );
-  }*/
+  }
 
 }

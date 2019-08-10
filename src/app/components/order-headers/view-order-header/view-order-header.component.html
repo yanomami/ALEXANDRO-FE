@@ -1,4 +1,4 @@
-<div class="container" *ngIf="currentItem && currentItem.clientByClientId">
+<div class="container" *ngIf="currentItem && currentItem.clientByClientId && orderLines">
 
   <h3>Header</h3>
 
@@ -39,6 +39,26 @@
       <td>{{currentItem.clientByClientId.firstName}}</td>
       <td>{{currentItem.clientByClientId.lastName}}</td>
       <td>{{currentItem.clientByClientId.email}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <h3>Order Lines</h3>
+
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">ORDER HEADER ID</th>
+      <th scope="col">Product ID</th>
+      <th scope="col">Quantity ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let orderLine of orderLines._embedded.results">
+      <th scope="row">{{orderLine.orderHeaderId}}</th>
+      <td>{{orderLine.productId}}</td>
+      <td>{{orderLine.quantity}}</td>
     </tr>
 
     </tbody>
