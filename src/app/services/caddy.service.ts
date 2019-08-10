@@ -3,6 +3,7 @@ import {Caddy} from '../models/caddy.model';
 import {ProductItem} from '../models/product-item.model';
 import {Product} from '../models/entities/product.model';
 import {Client} from '../models/entities/client.model';
+import {OrderHeader} from '../models/entities/orderHeader.model';
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,15 @@ export class CaddyService {
   setCurrentCaddyClient(client: Client) {
     this.getCurrentCaddy().client = client;
     this.saveCaddies();
+  }
+
+  setCurrentCaddyOrderHeader(orderHeader: OrderHeader ) {
+    this.getCurrentCaddy().orderHeader = orderHeader;
+    this.saveCaddies();
+  }
+
+  getCurrentCaddyOrderHeader(): OrderHeader {
+    return this.getCurrentCaddy().orderHeader;
   }
 
 }

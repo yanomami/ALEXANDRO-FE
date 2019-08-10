@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col text-center">
+        <div class="breadcrumb">
+          <a routerLink="/caddies">Cart overview</a>
+          <a routerLink="/checkout" class="active">Delivery & Payment</a>
+          <a>Order resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="!caddyService.getCurrentCaddyOrderHeader()">
+    <strong>No order submitted for current caddy</strong> Go checkout
+  </div>
+  <div class="alert alert-success" *ngIf="caddyService.getCurrentCaddyOrderHeader()">
+    Order number <strong>{{caddyService.getCurrentCaddyOrderHeader().id}}</strong> submitted on {{caddyService.getCurrentCaddyOrderHeader().datePlaced}}
+  </div>
+
+</div>

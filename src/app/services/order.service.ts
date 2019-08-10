@@ -18,9 +18,9 @@ export class OrderService {
   constructor(private http: HttpClient,
               private caddyService: CaddyService ) { }
 
-  submitOrder(): Observable<Order> {
+  submitOrder(): Observable<OrderHeader> {
     this.makeOrderFromCaddy();
-    return this.http.post<Order>(this.host + '/orders', this.order);
+    return this.http.post<OrderHeader>(this.host + '/orders', this.order);
   }
 
   getOrder(id: number): Observable<OrderHeader> {

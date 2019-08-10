@@ -6,6 +6,7 @@ import {CaddyService} from '../../services/caddy.service';
 import {ProductItem} from '../../models/product-item.model';
 import {AddressService} from '../../services/address.service';
 import {OrderService} from '../../services/order.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -18,7 +19,8 @@ export class CheckoutComponent implements OnInit {
                private clientService: ClientService,
                private caddyService: CaddyService,
                private addressService: AddressService,
-               private orderService: OrderService) { }
+               private orderService: OrderService,
+               private router: Router) { }
 
   public user: Client;
   public items: ProductItem[];
@@ -63,6 +65,8 @@ export class CheckoutComponent implements OnInit {
     this.orderService.submitOrder()
       .subscribe(data => {
         console.log('SUBMIT ORDER DONE');
+        this.caddyService.setCurrentCaddyOrderHeader(data);
+        this.router.navigateByUrl('/orderResume');
         },
         error => {
           console.log('Error ! : ' + error);
