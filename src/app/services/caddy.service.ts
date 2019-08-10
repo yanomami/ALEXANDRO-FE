@@ -61,14 +61,14 @@ export class CaddyService {
     if (caddies) {
 
       // Convert Array to Map after serialization
-      function reviver(key, value) {
+      const reviver = (key, value) => {
         if (typeof value === 'object' && value !== null) {
           if (value.dataType === 'Map') {
             return new Map(value.value);
           }
         }
         return value;
-      }
+      };
 
       this.caddies = JSON.parse(caddies, reviver);
       isLoaded = true;
