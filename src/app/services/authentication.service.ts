@@ -45,6 +45,17 @@ export class AuthenticationService {
     return this.jwtHelper.isTokenExpired(this.loadToken());
   }
 
+  private getRoles(): Array<any> {
+    return this.jwtHelper.decodeToken(this.jwtToken).scopes;
+  }
+
+  isAdmin(): boolean {
+    for (const r of this.getRoles()) {
+      if (r.authority === 'ADMIN') { return true; }
+    }
+    return false;
+  }
+
   logout() {
     localStorage.removeItem('token');
   }

@@ -20,7 +20,7 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown" routerLinkActive="active">
+      <li class="nav-item dropdown" routerLinkActive="active" *ngIf="authService.isAdmin()"><!--TODO : use AuthGuard-->
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Countries
         </a>
@@ -30,7 +30,7 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown" routerLinkActive="active">
+      <li class="nav-item dropdown" routerLinkActive="active" *ngIf="authService.isAdmin()"><!--TODO : use AuthGuard-->
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink_2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Clients
         </a>
@@ -40,7 +40,7 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown" routerLinkActive="active">
+      <li class="nav-item dropdown" routerLinkActive="active" *ngIf="authService.isAdmin()"> <!--TODO : use AuthGuard-->
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink_3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           OrderHeaders
         </a>
