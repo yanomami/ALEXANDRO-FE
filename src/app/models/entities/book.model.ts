@@ -1,6 +1,6 @@
 import {Author} from './author.model';
 
-export class Book {
+export interface Book {
 
   id: number;
   isbn: string;

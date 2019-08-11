@@ -1,7 +1,7 @@
 import {OrderHeader} from './orderHeader.model';
 import {Product} from './product.model';
 
-export class OrderLine {
+export interface OrderLine {
   orderHeaderId: number;
   productId: number;
   quantity: number;

@@ -1,6 +1,6 @@
 import {Book} from './book.model';
 
-export class Product {
+export interface Product {
 
   id: number;
   name: string;

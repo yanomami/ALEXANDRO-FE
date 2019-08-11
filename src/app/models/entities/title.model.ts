@@ -1,4 +1,4 @@
-export class Title {
+export interface Title {
 
   id: number;
   description: string;

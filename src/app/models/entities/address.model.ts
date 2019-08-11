@@ -1,6 +1,6 @@
 import {Country} from './country.model';
 
-export class Address {
+export interface Address {
 
   id: number;
   addressLine1: string;

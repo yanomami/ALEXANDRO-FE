@@ -1,7 +1,7 @@
 import {Client} from './client.model';
 import {ShippingMethod} from './shippingMethod.model';
 
-export class OrderHeader {
+export interface OrderHeader {
   id: number;
   datePlaced: Date;
   dateShipped: Date;

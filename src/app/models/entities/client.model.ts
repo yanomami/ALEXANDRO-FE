@@ -2,7 +2,7 @@ import {Address} from './address.model';
 import {Title} from './title.model';
 import {PaymentMethod} from './paymentMethod.model';
 
-export class Client {
+export interface Client {
 
   id: number;
   firstName: string;
