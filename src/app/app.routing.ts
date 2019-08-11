@@ -17,6 +17,7 @@ import {OrderResumeComponent} from './components/order-resume/order-resume.compo
 import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
 import {ViewOrderHeaderComponent} from './components/order-headers/view-order-header/view-order-header.component';
 
+// TODO : add AuthGuard
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
