@@ -14,6 +14,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
+  // The token contains the username and its roles(not the password)
   private jwtToken: string;
 
   private host  = 'http://localhost:8080/alexandro';
