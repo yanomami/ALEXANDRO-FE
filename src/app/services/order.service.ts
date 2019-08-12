@@ -33,7 +33,7 @@ export class OrderService {
     this.order.productItems.length = 0;
 
     const caddy: Caddy = this.caddyService.getCurrentCaddy();
-    this.order.idClient = caddy.client.id;
+    this.order.client = caddy.client;
 
     const productItems: ProductItem[] = this.caddyService.getCurrentCaddyItemsArray();
 

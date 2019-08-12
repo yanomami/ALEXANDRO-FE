@@ -1,5 +1,7 @@
+import {Client} from './entities/client.model';
+
 export class Order {
-  idClient: number;
+  client: Client;
   productItems: Item[] = new Array<Item>();
 }
 
