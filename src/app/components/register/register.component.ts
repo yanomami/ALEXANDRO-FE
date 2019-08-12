@@ -32,6 +32,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.addForm.invalid) {
+      return;
+    }
+
+    this.user.username = this.addForm.controls.username.value;
+    this.user.password = this.addForm.controls.password.value;
+    this.user.firstName = this.addForm.controls.firstName.value;
+    this.user.lastName = this.addForm.controls.lastName.value;
+
     this.authService.register(this.user)
       .subscribe( data => {
         this.doAction(data);

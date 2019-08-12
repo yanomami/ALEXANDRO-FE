@@ -8,25 +8,29 @@
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">User Name(Email):</label>
-      <input type="text" [(ngModel)]="user.username" formControlName="username" placeholder="username" name="username" class="form-control" id="username">
+      <input type="text" formControlName="username" placeholder="username" class="form-control" id="username">
+      <div class="error" *ngIf="addForm.controls['username'].hasError('required') && addForm.controls['username'].touched">Username is required</div>
     </div>
 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" [(ngModel)]="user.password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
+      <input type="password" formControlName="password" placeholder="password" class="form-control" id="password">
+      <div class="error" *ngIf="addForm.controls['password'].hasError('required') && addForm.controls['password'].touched">Password is required</div>
     </div>
 
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input type="text" [(ngModel)]="user.firstName" formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+      <input type="text" formControlName="firstName" placeholder="First Name" class="form-control" id="firstName">
+      <div class="error" *ngIf="addForm.controls['firstName'].hasError('required') && addForm.controls['firstName'].touched">FirstName is required</div>
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input type="text" [(ngModel)]="user.lastName" formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+      <input type="text" formControlName="lastName" placeholder="Last name" class="form-control" id="lastName">
+      <div class="error" *ngIf="addForm.controls['lastName'].hasError('required') && addForm.controls['lastName'].touched">LastName is required</div>
     </div>
 
-    <button class="btn btn-success">Register</button>
+    <button class="btn btn-success" [disabled]="addForm.invalid">Register</button>
 
   </form>
 </div>
