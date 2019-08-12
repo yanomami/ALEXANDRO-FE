@@ -26,6 +26,10 @@ import { OrderResumeComponent } from './components/order-resume/order-resume.com
 import { ListOrderHeaderComponent } from './components/order-headers/list-order-header/list-order-header.component';
 import { ViewOrderHeaderComponent } from './components/order-headers/view-order-header/view-order-header.component';
 
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -65,9 +69,16 @@ export function tokenGetter() {
         whitelistedDomains: ['localhost:8080'],
         blacklistedRoutes: ['localhost:8080/alexandro/login', 'localhost:8080/alexandro/register']
       }
-    })
+    }),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  // Font Awesome Library
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, far);
+  }
+}

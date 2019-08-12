@@ -61,6 +61,12 @@
 
       <li class="nav-item">
         <a>{{caddyService.getCurrentCaddyName()}} | size : {{caddyService.getCurrentCaddyNbItems()}}</a>
+
+        <fa-layers class="fa-fw">
+          <fa-icon [icon]="['fas','shopping-cart']"></fa-icon>
+          <fa-layers-counter [content]="caddyService.getCurrentCaddyNbItems()" class="fa-icon-counter fa-2x"></fa-layers-counter>
+        </fa-layers>
+
       </li>
 
     </ul>
