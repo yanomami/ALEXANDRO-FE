@@ -1,7 +1,7 @@
 # ALEXANDROFE
 
-##Principaux tutoriaux suivis:
-#####Youtube: [Videos de Mohamed Youssfi](https://www.youtube.com/user/mohamedYoussfi/videos) :
+## Principaux tutoriaux suivis:
+##### Youtube: [Videos de Mohamed Youssfi](https://www.youtube.com/user/mohamedYoussfi/videos) :
 
     * Part 1 Spring and Angular- Backend Part with Spring
     * Part 2- Spring and Angular- Angular Framework Architecture and Concepts
@@ -13,9 +13,9 @@
     * Part 7 JEE et Ecosystèmes Spring Angular JWT Application de E Commerce Product details
     * Part 8 JEE et Ecosystèmes Spring Angular JWT Application de E Commerce Panier Commandes
     
-#####Openclassrooms: [Développez des applications Web avec Angular](https://openclassrooms.com/fr/courses/4668271-developpez-des-applications-web-avec-angular)
+##### Openclassrooms: [Développez des applications Web avec Angular](https://openclassrooms.com/fr/courses/4668271-developpez-des-applications-web-avec-angular)
 
-#####JWT (JSON Web Token) :
+##### JWT (JSON Web Token) :
 [1er tuto](https://www.devglan.com/spring-boot/spring-boot-angular-8-example) + 
 [Github](https://github.com/only2dhir/spring-boot-jwt.git)
 
