@@ -35,15 +35,18 @@ export class CheckoutComponent implements OnInit {
   getUser() {
     const username: string = this.authService.getUsername();
 
-    this.clientService.getSingleByUsername(username)
-      .subscribe(data => {
-          this.user = data;
-          this.getInvoiceAddress(this.user);
-        },
-        error => {
-          console.log('Error ! : ' + error);
-        }
-      );
+    if (!username) { this.router.navigateByUrl('/login'); } else {
+
+      this.clientService.getSingleByUsername(username)
+        .subscribe(data => {
+            this.user = data;
+            this.getInvoiceAddress(this.user);
+          },
+          error => {
+            console.log('Error ! : ' + error);
+          }
+        );
+    }
   }
 
   getInvoiceAddress(user: Client) {

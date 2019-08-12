@@ -12,12 +12,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
-
   // The token contains the username and its roles(not the password)
   private jwtToken: string;
+  private roles: Array<any>;
 
   private host  = 'http://localhost:8080/alexandro';
+
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {
+    this.loadToken();
+  }
 
   login(user: Login): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.host + '/login', user);
@@ -28,36 +31,45 @@ export class AuthenticationService {
   }
 
   getUsername(): string {
-    return this.jwtHelper.decodeToken(this.jwtToken).sub;
+    return this.jwtToken ? this.jwtHelper.decodeToken(this.jwtToken).sub : null;
   }
 
   saveToken(jwtToken: string) {
     this.jwtToken = jwtToken;
+    this.roles = this.getRoles(jwtToken);
     localStorage.setItem('token', jwtToken);
   }
 
-  loadToken(): string {
+  loadToken() {
     this.jwtToken = localStorage.getItem('token');
-    return this.jwtToken;
+    this.roles = this.getRoles(this.jwtToken);
+  }
+
+  private getRoles(jwtToken: string): Array<any> {
+    return jwtToken ? this.jwtHelper.decodeToken(jwtToken).scopes : null;
   }
 
   isTokenExpired(): boolean {
-    return this.jwtHelper.isTokenExpired(this.loadToken());
-  }
-
-  private getRoles(): Array<any> {
-    return this.jwtHelper.decodeToken(this.jwtToken).scopes;
+    return this.jwtToken ? this.jwtHelper.isTokenExpired(this.jwtToken) : true;
   }
 
   isAdmin(): boolean {
-    for (const r of this.getRoles()) {
-      if (r.authority === 'ADMIN') { return true; }
+
+    if (this.roles) {
+      for (const r of this.roles) {
+        if (r.authority === 'ADMIN') {
+          return true;
+        }
+      }
     }
+
     return false;
   }
 
   logout() {
     localStorage.removeItem('token');
+    this.jwtToken = null;
+    this.roles = null;
   }
 
 }
