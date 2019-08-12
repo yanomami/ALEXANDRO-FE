@@ -8,8 +8,9 @@
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">User Name(Email):</label>
-      <input type="text" formControlName="username" placeholder="username" class="form-control" id="username">
+      <input type="email" formControlName="username" placeholder="username" class="form-control" id="username">
       <div class="error" *ngIf="addForm.controls['username'].hasError('required') && addForm.controls['username'].touched">Username is required</div>
+      <div class="error" *ngIf="addForm.controls['username'].hasError('email') && addForm.controls['username'].touched">Email must be valid</div>
     </div>
 
     <div class="form-group">
