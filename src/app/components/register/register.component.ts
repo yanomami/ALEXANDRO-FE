@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    // TODO : Test the validity of the inputs (rq : email is tested in Back End via the annotation @Email in the client entity)
     this.user.username = this.addForm.controls.username.value;
     this.user.password = this.addForm.controls.password.value;
     this.user.firstName = this.addForm.controls.firstName.value;
