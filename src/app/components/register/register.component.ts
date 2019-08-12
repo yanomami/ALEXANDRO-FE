@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Register} from '../../models/register.model';
 
@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private authService: AuthenticationService) { }
+              private authService: AuthenticationService,
+              private activatedRoute: ActivatedRoute) { }
 
   public user: Register = new Register();
 
@@ -58,7 +59,15 @@ export class RegisterComponent implements OnInit {
     if (data.status === 200) {
       const jwtToken = data.result.token;
       this.authService.saveToken(jwtToken);
-      this.router.navigateByUrl('/products').then();
+
+      // Redirect
+      const origin = this.activatedRoute.snapshot.params.origin;
+      if (origin === 'checkout') {
+        this.router.navigateByUrl('/checkout').then();
+      } else {
+        this.router.navigateByUrl('/products').then();
+      }
+
     } else {
       this.invalidLogin = true;
       alert(data.message);

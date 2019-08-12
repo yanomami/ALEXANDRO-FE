@@ -35,7 +35,7 @@ export class CheckoutComponent implements OnInit {
   getUser() {
     const username: string = this.authService.getUsername();
 
-    if (!username) { this.router.navigateByUrl('/login'); } else {
+    if (!username) { this.router.navigateByUrl('/login/checkout'); } else {
 
       this.clientService.getSingleByUsername(username)
         .subscribe(data => {

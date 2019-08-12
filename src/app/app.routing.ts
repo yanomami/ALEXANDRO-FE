@@ -21,6 +21,8 @@ import {ViewOrderHeaderComponent} from './components/order-headers/view-order-he
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
+  {path: 'login/:origin', component: LoginComponent },
+  {path: 'register/:origin', component: RegisterComponent },
   {path: 'countries', component: ListCountryComponent},
   {path: 'countries/search', component: SearchCountryComponent},
   {path: 'countries/add', component: AddCountryComponent},
