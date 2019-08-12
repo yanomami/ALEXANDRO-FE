@@ -59,7 +59,7 @@
         <button id="login" *ngIf="authService.isTokenExpired()" routerLink="/login">Log In</button>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" routerLink="/caddies">
         <a>{{caddyService.getCurrentCaddyName()}} | size : {{caddyService.getCurrentCaddyNbItems()}}</a>
 
         <fa-layers class="fa-fw">
