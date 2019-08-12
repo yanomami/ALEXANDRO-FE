@@ -62,8 +62,8 @@ export class RegisterComponent implements OnInit {
 
       // Redirect
       const origin = this.activatedRoute.snapshot.params.origin;
-      if (origin === 'checkout') {
-        this.router.navigateByUrl('/checkout').then();
+      if (origin) {
+        this.router.navigateByUrl('/' + origin).then();
       } else {
         this.router.navigateByUrl('/products').then();
       }

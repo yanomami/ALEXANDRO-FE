@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
 
       // Redirect
       const origin = this.activatedRoute.snapshot.params.origin;
-      if (origin === 'checkout') {
-        this.router.navigateByUrl('/checkout').then();
+      if (origin) {
+        this.router.navigateByUrl('/' + origin).then();
       } else {
         this.router.navigateByUrl('/products').then();
       }
@@ -72,8 +72,8 @@ export class LoginComponent implements OnInit {
   onRegister() {
     // Redirect
     const origin = this.activatedRoute.snapshot.params.origin;
-    if (origin === 'checkout') {
-      this.router.navigateByUrl('/register/checkout').then();
+    if (origin) {
+      this.router.navigateByUrl('/register/' + origin).then();
     } else {
       this.router.navigateByUrl('/register').then();
     }
