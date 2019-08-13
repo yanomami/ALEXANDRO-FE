@@ -3,6 +3,7 @@ import {ListResult} from '../../../models/entities/list-result.model';
 import {Client} from '../../../models/entities/client.model';
 import {Router} from '@angular/router';
 import {ClientService} from '../../../services/client.service';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-list-client',
@@ -17,7 +18,9 @@ export class ListClientComponent implements OnInit {
   private totalPages: number;
   private pages: Array<number>;
 
-  constructor(private router: Router, private service: ClientService) { }
+  constructor(private router: Router,
+              private service: ClientService,
+              public authentService: AuthenticationService) { }
 
   ngOnInit() {
     this.getList();
