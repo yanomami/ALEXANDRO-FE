@@ -55,7 +55,7 @@
       </li>
 
       <li class="nav-item">
-        <button id="logout" *ngIf="!authService.isTokenExpired()" (click)="onLogout()">Log Out</button>
+        <button id="logout" *ngIf="!authService.isTokenExpired()" (click)="onLogout()">Log Out {{authService.getUsername()}}</button>
         <button id="login" *ngIf="authService.isTokenExpired()" routerLink="/login">Log In</button>
       </li>
 
