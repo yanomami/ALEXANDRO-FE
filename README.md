@@ -1,4 +1,5 @@
-# ALEXANDROFE
+# Site e-commerce de vente de livres
+Front-end
 
 ## Principaux tutoriaux suivis:
 ##### Youtube: [Videos de Mohamed Youssfi](https://www.youtube.com/user/mohamedYoussfi/videos) :
